@@ -93,7 +93,7 @@ details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
       <li><strong>50 pernyataan</strong>, kira-kira 8–10 menit.</li>
       <li>Jawab sesuai diri Anda <em>yang sebenarnya</em> saat ini, bukan yang Anda harapkan.</li>
       <li>Tidak ada jawaban benar atau salah. Ikuti kesan pertama.</li>
-      <li>Jawaban hanya diproses di perangkat Anda.</li>
+      <li>Jawaban Anda hanya diproses di perangkat Anda dan tidak dikirim ke mana pun. Kami hanya mencatat statistik kunjungan anonim (tanpa cookie), termasuk kode tipe hasil tes, untuk mengetahui jumlah pengunjung.</li>
     </ul>
     <div class="row"><button class="btn" id="startBtn">Mulai</button></div>
     <div class="row hidden" id="resumeRow"><button class="btn ghost" id="resetBtn">Ulang dari awal</button></div>
@@ -250,6 +250,7 @@ const TRAITS = {
 };
 const ORDER = ["O","C","E","A","N"];
 const KEY = "ipip50_answers_v1";
+function track(path, title){ try{ if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path, title, event:true}); }catch(e){} }
 
 let answers = new Array(ITEMS.length).fill(null);
 let idx = 0;
@@ -372,6 +373,7 @@ function results(){
       </div>`);
 
   renderBigFive(p);
+  if(!window.__tracked){ window.__tracked = true; track("selesai-tes","Tes selesai"); track("hasil-"+m.code+"-"+m.id, "Hasil "+m.code+"-"+m.id); }
   show("result");
 }
 
@@ -388,7 +390,7 @@ function renderBigFive(p){
   });
 }
 
-$("startBtn").onclick = () => { const f = answers.indexOf(null); idx = f>=0 ? f : 0; show("quiz"); render(); if(f<0) results(); };
+$("startBtn").onclick = () => { track("mulai-tes","Klik Mulai"); const f = answers.indexOf(null); idx = f>=0 ? f : 0; show("quiz"); render(); if(f<0) results(); };
 $("resetBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; show("quiz"); render(); };
 $("backBtn").onclick = () => { if(idx>0){ idx--; render(); } };
 $("nextBtn").onclick = next;
@@ -406,5 +408,6 @@ const answered = answers.filter(a=>a!==null).length;
 if(answered>0 && answered<ITEMS.length){ $("startBtn").textContent = `Lanjutkan (${answered}/${ITEMS.length})`; $("resumeRow").classList.remove("hidden"); }
 else if(answered===ITEMS.length){ $("startBtn").textContent = "Lihat hasil terakhir"; $("resumeRow").classList.remove("hidden"); $("resetBtn").textContent="Ikuti tes baru"; }
 </script>
+<script data-goatcounter="https://kepribadian-mbti.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
