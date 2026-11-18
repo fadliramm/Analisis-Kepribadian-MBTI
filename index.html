@@ -67,6 +67,15 @@ ul.plain li{margin:.25em 0}
 #typeDesc h3{font-size:.95rem;margin:14px 0 4px}
 #typeDesc ul{margin:.2em 0;padding-left:18px}
 #typeDesc li{font-size:.93rem;margin:.15em 0}
+.about p{font-size:.95rem}
+.about h3{font-size:1rem;margin:16px 0 4px}
+.dims{display:grid;gap:8px;margin:12px 0}
+.dim{display:grid;grid-template-columns:52px 1fr;column-gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.dim b{grid-row:span 2;align-self:center;font-family:Fraunces,Georgia,serif;font-size:1.05rem;color:var(--accent);text-align:center}
+.dim span{font-size:.93rem}
+.dim small{font-size:.84rem;color:var(--muted);line-height:1.4}
+.groups{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.groups span{color:#fff;font-size:.8rem;font-weight:600;padding:4px 11px;border-radius:20px}
 details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .toast{font-size:.85rem;color:var(--accent);text-align:center;margin-top:8px;min-height:1.2em}
 </style>
@@ -89,6 +98,29 @@ details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
     <div class="row"><button class="btn" id="startBtn">Mulai</button></div>
     <div class="row hidden" id="resumeRow"><button class="btn ghost" id="resetBtn">Ulang dari awal</button></div>
   </div>
+  <h2>Apa itu tipe kepribadian MBTI?</h2>
+  <div class="card about">
+    <p><strong>MBTI (Myers-Briggs Type Indicator)</strong> adalah kerangka untuk memahami cara seseorang mendapatkan energi, menyerap informasi, mengambil keputusan, dan menata hidupnya. Kerangka ini dikembangkan oleh Katharine Cook Briggs dan putrinya, Isabel Briggs Myers, berdasarkan teori tipe psikologis Carl Jung (1921).</p>
+    <p>MBTI melihat kepribadian dari <strong>empat pasang preferensi</strong>. Setiap orang cenderung lebih condong ke salah satu sisi dari tiap pasangan:</p>
+    <div class="dims">
+      <div class="dim"><b>E / I</b><span><strong>Ekstraversi</strong> vs <strong>Introversi</strong></span><small>Dari mana Anda mendapat energi: interaksi dengan orang dan dunia luar, atau refleksi dan waktu sendiri.</small></div>
+      <div class="dim"><b>S / N</b><span><strong>Sensing</strong> vs <strong>Intuition</strong></span><small>Cara Anda menyerap informasi: fakta konkret dan pengalaman nyata, atau pola, makna, dan kemungkinan.</small></div>
+      <div class="dim"><b>T / F</b><span><strong>Thinking</strong> vs <strong>Feeling</strong></span><small>Cara Anda mengambil keputusan: logika dan objektivitas, atau nilai pribadi dan dampaknya pada orang lain.</small></div>
+      <div class="dim"><b>J / P</b><span><strong>Judging</strong> vs <strong>Perceiving</strong></span><small>Cara Anda menata hidup: terencana dan terstruktur, atau fleksibel dan spontan.</small></div>
+    </div>
+    <p>Kombinasi keempatnya menghasilkan <strong>16 tipe kepribadian</strong>, misalnya INTJ atau ENFP. Ke-16 tipe itu biasanya dikelompokkan menjadi empat:</p>
+    <div class="groups">
+      <span style="background:#7a4fa3">Analis · NT</span>
+      <span style="background:#3d8a5a">Diplomat · NF</span>
+      <span style="background:#2f6f9f">Penjaga · SJ</span>
+      <span style="background:#c9792b">Penjelajah · SP</span>
+    </div>
+    <p>Huruf kelima, <strong>-A (Assertive)</strong> atau <strong>-T (Turbulent)</strong>, menggambarkan seberapa tenang atau peka Anda terhadap stres.</p>
+    <h3>Bagaimana tes ini bekerja?</h3>
+    <p>Kuesioner ini tidak langsung memasukkan Anda ke satu kotak. Jawaban Anda diukur dengan model <strong>Big Five</strong>, yaitu model kepribadian yang paling banyak dipakai dalam riset psikologi. Hasilnya lalu diterjemahkan ke tipe MBTI memakai korelasi yang sudah diteliti (McCrae &amp; Costa, 1989). Karena itu Anda juga melihat <em>seberapa kuat</em> setiap preferensi, bukan hanya hurufnya.</p>
+    <p class="muted">Tipe MBTI menggambarkan <em>preferensi</em>, bukan kemampuan. Tidak ada tipe yang lebih baik atau lebih buruk. Hasilnya cocok untuk refleksi diri dan memahami gaya kerja, tetapi bukan diagnosis psikologis dan tidak dianjurkan untuk seleksi kerja.</p>
+  </div>
+
   <p class="muted" style="margin-top:14px">Butir pertanyaan diadaptasi dari International Personality Item Pool (IPIP, Goldberg 1992), yang berstatus domain publik.</p>
 </section>
 
