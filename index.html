@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuesioner Kepribadian – Tipe MBTI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3ee; --card:#fffdf9; --ink:#1f1d1a; --muted:#6b665e; --line:#e4ddd2;
+  --accent:#2f5d50; --accent-soft:#e3ece8;
+  --O:#7a4fa3; --C:#2f6f9f; --E:#c9792b; --A:#3d8a5a; --N:#b8474a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:620px;margin:0 auto;padding:24px 18px 60px}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em}
+h1{font-size:1.75rem;margin:.2em 0 .3em;line-height:1.2}
+h2{font-size:1.25rem;margin:1.4em 0 .5em}
+p{margin:.5em 0}
+.muted{color:var(--muted);font-size:.92rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:16px}
+.btn{appearance:none;border:0;background:var(--accent);color:#fff;font:600 1rem Inter,sans-serif;padding:13px 20px;border-radius:12px;cursor:pointer;width:100%}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:disabled{opacity:.35;cursor:default}
+.row{display:flex;gap:10px;margin-top:14px}
+.row .btn{flex:1}
+ul.plain{padding-left:18px;margin:.4em 0}
+ul.plain li{margin:.25em 0}
+.progress{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin:6px 0 4px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.qnum{font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between}
+.qtext{font-family:Fraunces,Georgia,serif;font-size:1.35rem;line-height:1.35;margin:18px 0 6px;min-height:3.6em}
+.qhint{font-size:.85rem;color:var(--muted);margin-bottom:12px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;font:500 .98rem Inter,sans-serif;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s}
+.opt b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:.9rem;flex:none}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel b{background:var(--accent);color:#fff}
+.trait{margin:18px 0}
+.trait-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.trait-name{font-weight:600}
+.trait-lvl{font-size:.85rem;font-weight:600;padding:2px 10px;border-radius:20px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.bar{height:12px;background:var(--line);border-radius:8px;overflow:hidden;margin:8px 0 6px;position:relative}
+.bar i{display:block;height:100%;border-radius:8px}
+.bar::before,.bar::after{content:"";position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.9)}
+.bar::before{left:40%}.bar::after{left:65%}
+.trait p{font-size:.93rem;margin:.2em 0}
+.scale{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.note{background:#fbf6ec;border:1px solid #eadfc8;border-radius:12px;padding:12px 14px;font-size:.88rem;color:#5a5245;margin-top:16px}
+.hidden{display:none}
+.typebox{text-align:center;padding:26px 16px 10px}
+.typecode{font-family:Fraunces,Georgia,serif;font-size:3.4rem;letter-spacing:.06em;line-height:1;color:var(--accent)}
+.typecode small{font-size:1.4rem;color:var(--muted);letter-spacing:0}
+.typename{font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin-top:8px}
+.typegroup{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:600;padding:3px 12px;border-radius:20px;color:#fff}
+.dicho{margin:16px 0}
+.dicho-lbl{display:flex;justify-content:space-between;font-size:.9rem}
+.dicho-lbl span.on{font-weight:600;color:var(--ink)}
+.dicho-lbl span.off{color:var(--muted)}
+.dbar{height:12px;background:var(--line);border-radius:8px;position:relative;margin:7px 0 4px}
+.dbar::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--muted)}
+.dbar i{position:absolute;top:0;bottom:0;border-radius:8px;background:var(--accent)}
+.dicho .str{font-size:.82rem;color:var(--muted);text-align:center}
+.typeDesc h3{font-size:1rem;margin:14px 0 4px}
+#typeDesc h3{font-size:.95rem;margin:14px 0 4px}
+#typeDesc ul{margin:.2em 0;padding-left:18px}
+#typeDesc li{font-size:.93rem;margin:.15em 0}
+details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.toast{font-size:.85rem;color:var(--accent);text-align:center;margin-top:8px;min-height:1.2em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- INTRO -->
+<section id="intro">
+  <p class="muted">Tipe MBTI · berbasis IPIP-50</p>
+  <h1>Temukan Tipe MBTI Anda</h1>
+  <p>Kuesioner ini mengukur kepribadian Anda dengan model ilmiah <strong>Big Five</strong>, lalu menerjemahkannya menjadi salah satu dari <strong>16 tipe MBTI</strong> lengkap dengan kekuatan tiap preferensi.</p>
+  <div class="card">
+    <ul class="plain">
+      <li><strong>50 pernyataan</strong>, kira-kira 8–10 menit.</li>
+      <li>Jawab sesuai diri Anda <em>yang sebenarnya</em> saat ini, bukan yang Anda harapkan.</li>
+      <li>Tidak ada jawaban benar atau salah. Ikuti kesan pertama.</li>
+      <li>Jawaban hanya diproses di perangkat Anda.</li>
+    </ul>
+    <div class="row"><button class="btn" id="startBtn">Mulai</button></div>
+    <div class="row hidden" id="resumeRow"><button class="btn ghost" id="resetBtn">Ulang dari awal</button></div>
+  </div>
+  <p class="muted" style="margin-top:14px">Butir pertanyaan diadaptasi dari International Personality Item Pool (IPIP, Goldberg 1992), yang berstatus domain publik.</p>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="hidden">
+  <div class="qnum"><span id="qCount"></span><span id="qPct"></span></div>
+  <div class="progress"><i id="prog"></i></div>
+  <div class="qtext" id="qText"></div>
+  <div class="qhint">Seberapa tepat pernyataan ini menggambarkan diri Anda?</div>
+  <div class="opts" id="opts"></div>
+  <div class="row">
+    <button class="btn ghost" id="backBtn">← Kembali</button>
+    <button class="btn" id="nextBtn" disabled>Lanjut →</button>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="hidden">
+  <p class="muted">Hasil Anda · tipe MBTI</p>
+  <div class="typebox">
+    <div class="typecode" id="typeCode"></div>
+    <div class="typename" id="typeName"></div>
+    <div class="typegroup" id="typeGroup"></div>
+  </div>
+
+  <div class="card" id="typeDesc"></div>
+
+  <h2>Kekuatan preferensi</h2>
+  <div class="card" id="dichos"></div>
+
+  <details class="card bf">
+    <summary>Lihat detail skor Big Five</summary>
+    <div id="traits"></div>
+    <p class="muted">Garis putih pada bar = batas Rendah · Sedang · Tinggi</p>
+  </details>
+
+  <div class="note">
+    <strong>Catatan:</strong> Tipe MBTI di sini <strong>diestimasi</strong> dari skor Big Five, memakai korelasi yang sudah diteliti (McCrae &amp; Costa, 1989): Ekstraversi → E/I, Keterbukaan → N/S, Keramahan → F/T, Kehati-hatian → J/P, dan Neurotisisme → -A/-T. Hasilnya bukan tes MBTI® resmi. Preferensi yang kekuatannya di bawah ~20% berarti Anda berada di tengah, jadi huruf itu bisa berubah saat tes ulang. Hasil ini untuk refleksi diri, <strong>bukan diagnosis psikologis</strong>, dan tidak cocok dipakai untuk seleksi kerja.
+  </div>
+
+  <div class="row">
+    <button class="btn" id="copyBtn">Salin hasil</button>
+    <button class="btn ghost" id="retakeBtn">Ulangi tes</button>
+  </div>
+  <div class="toast" id="toast"></div>
+</section>
+
+</div>
+
+<script>
+// key: +1 = searah, -1 = dibalik. Dimensi: E, A, C, N, O
+const ITEMS = [
+ ["E", 1,"Saya adalah orang yang menghidupkan suasana di sebuah acara."],
+ ["A",-1,"Saya kurang peduli terhadap orang lain."],
+ ["C", 1,"Saya selalu siap dan terencana."],
+ ["N", 1,"Saya mudah merasa stres."],
+ ["O", 1,"Saya memiliki kosakata yang kaya."],
+ ["E",-1,"Saya tidak banyak bicara."],
+ ["A", 1,"Saya tertarik pada orang lain."],
+ ["C",-1,"Saya suka meninggalkan barang-barang di sembarang tempat."],
+ ["N",-1,"Saya merasa santai hampir sepanjang waktu."],
+ ["O",-1,"Saya kesulitan memahami ide-ide abstrak."],
+ ["E", 1,"Saya merasa nyaman berada di sekitar banyak orang."],
+ ["A",-1,"Saya kadang menghina atau merendahkan orang lain."],
+ ["C", 1,"Saya memperhatikan detail."],
+ ["N", 1,"Saya sering mengkhawatirkan banyak hal."],
+ ["O", 1,"Saya memiliki imajinasi yang hidup."],
+ ["E",-1,"Saya lebih suka berada di belakang layar."],
+ ["A", 1,"Saya ikut merasakan perasaan orang lain."],
+ ["C",-1,"Saya sering membuat sesuatu jadi berantakan."],
+ ["N",-1,"Saya jarang merasa sedih atau murung."],
+ ["O",-1,"Saya tidak tertarik pada ide-ide abstrak."],
+ ["E", 1,"Saya yang biasanya memulai percakapan."],
+ ["A",-1,"Saya tidak tertarik dengan masalah orang lain."],
+ ["C", 1,"Saya langsung menyelesaikan pekerjaan rumah atau tugas rutin."],
+ ["N", 1,"Saya mudah terganggu atau gelisah."],
+ ["O", 1,"Saya punya ide-ide yang bagus."],
+ ["E",-1,"Saya jarang punya banyak hal untuk dibicarakan."],
+ ["A", 1,"Saya berhati lembut."],
+ ["C",-1,"Saya sering lupa mengembalikan barang ke tempatnya."],
+ ["N", 1,"Saya mudah marah atau tersinggung."],
+ ["O",-1,"Imajinasi saya kurang baik."],
+ ["E", 1,"Di sebuah acara, saya mengobrol dengan banyak orang yang berbeda."],
+ ["A",-1,"Saya tidak terlalu tertarik pada orang lain."],
+ ["C", 1,"Saya menyukai keteraturan."],
+ ["N", 1,"Suasana hati saya sering berubah."],
+ ["O", 1,"Saya cepat memahami sesuatu."],
+ ["E",-1,"Saya tidak suka menarik perhatian orang."],
+ ["A", 1,"Saya meluangkan waktu untuk orang lain."],
+ ["C",-1,"Saya cenderung menghindari kewajiban."],
+ ["N", 1,"Mood saya sering naik-turun drastis."],
+ ["O", 1,"Saya menggunakan kata-kata yang kompleks atau jarang dipakai."],
+ ["E", 1,"Saya tidak keberatan menjadi pusat perhatian."],
+ ["A", 1,"Saya bisa merasakan emosi orang lain."],
+ ["C", 1,"Saya mengikuti jadwal."],
+ ["N", 1,"Saya mudah kesal."],
+ ["O", 1,"Saya meluangkan waktu untuk merenungkan banyak hal."],
+ ["E",-1,"Saya cenderung diam di depan orang yang belum saya kenal."],
+ ["A", 1,"Saya membuat orang lain merasa nyaman."],
+ ["C", 1,"Saya teliti dan menuntut ketepatan dalam pekerjaan."],
+ ["N", 1,"Saya sering merasa sedih atau murung."],
+ ["O", 1,"Saya penuh dengan ide."]
+];
+const OPTS = ["Sangat tidak sesuai","Tidak sesuai","Netral","Sesuai","Sangat sesuai"];
+
+const TRAITS = {
+ O:{name:"Keterbukaan (Openness)",color:"var(--O)",
+    hi:"Anda imajinatif, penasaran secara intelektual, dan menikmati ide baru, konsep abstrak, serta pengalaman yang berbeda dari biasanya.",
+    mid:"Anda seimbang antara rasa ingin tahu dan sikap praktis: terbuka pada ide baru, tapi tetap menghargai cara yang sudah terbukti.",
+    lo:"Anda cenderung praktis, membumi, dan lebih nyaman dengan hal konkret dan familiar dibanding teori atau eksperimen."},
+ C:{name:"Kehati-hatian (Conscientiousness)",color:"var(--C)",
+    hi:"Anda terorganisir, disiplin, dan dapat diandalkan. Anda suka merencanakan dan menuntaskan pekerjaan dengan teliti.",
+    mid:"Anda cukup terorganisir saat dibutuhkan, tapi juga bisa fleksibel dan tidak kaku terhadap rencana.",
+    lo:"Anda spontan dan fleksibel, tapi mungkin kesulitan dengan rutinitas, jadwal, dan kerapian. Sistem pengingat bisa sangat membantu."},
+ E:{name:"Ekstraversi (Extraversion)",color:"var(--E)",
+    hi:"Anda mendapat energi dari interaksi sosial, mudah memulai percakapan, dan nyaman tampil di depan orang.",
+    mid:"Anda ambivert: menikmati interaksi sosial, tapi juga butuh waktu sendiri untuk mengisi ulang energi.",
+    lo:"Anda cenderung introver: lebih nyaman dalam kelompok kecil, berpikir sebelum bicara, dan butuh waktu tenang untuk memulihkan energi."},
+ A:{name:"Keramahan (Agreeableness)",color:"var(--A)",
+    hi:"Anda empatik, hangat, dan kooperatif. Anda peduli pada perasaan orang lain dan suka menjaga keharmonisan.",
+    mid:"Anda peduli pada orang lain, tapi juga bisa tegas dan mempertahankan pendapat saat perlu.",
+    lo:"Anda lugas, kritis, dan kompetitif. Anda tidak mudah terpengaruh, meski kadang terkesan kurang hangat."},
+ N:{name:"Neurotisisme (Neuroticism)",color:"var(--N)",
+    hi:"Anda peka secara emosional dan cenderung mudah cemas, khawatir, atau stres. Kebiasaan mengelola stres bisa sangat membantu.",
+    mid:"Anda umumnya cukup stabil, tapi bisa merasa tertekan saat menghadapi situasi berat.",
+    lo:"Anda tenang, stabil secara emosional, dan tidak mudah terguncang oleh tekanan."}
+};
+const ORDER = ["O","C","E","A","N"];
+const KEY = "ipip50_answers_v1";
+
+let answers = new Array(ITEMS.length).fill(null);
+let idx = 0;
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(answers)); }catch(e){} }
+function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(s) && s.length===ITEMS.length) answers = s; }catch(e){} }
+
+const $ = id => document.getElementById(id);
+function show(id){ ["intro","quiz","result"].forEach(s => $(s).classList.toggle("hidden", s!==id)); window.scrollTo(0,0); }
+
+function render(){
+  const [ , , text] = ITEMS[idx];
+  const done = answers.filter(a => a!==null).length;
+  $("qCount").textContent = `Pertanyaan ${idx+1} dari ${ITEMS.length}`;
+  $("qPct").textContent = Math.round(done/ITEMS.length*100) + "%";
+  $("prog").style.width = (done/ITEMS.length*100) + "%";
+  $("qText").textContent = text;
+  const box = $("opts"); box.innerHTML = "";
+  OPTS.forEach((label,i) => {
+    const b = document.createElement("button");
+    b.className = "opt" + (answers[idx]===i+1 ? " sel" : "");
+    b.innerHTML = `<b>${i+1}</b><span>${label}</span>`;
+    b.onclick = () => {
+      answers[idx] = i+1; save();
+      render();
+      setTimeout(next, 220);
+    };
+    box.appendChild(b);
+  });
+  $("backBtn").disabled = idx===0;
+  $("nextBtn").disabled = answers[idx]===null;
+  $("nextBtn").textContent = idx===ITEMS.length-1 ? "Lihat hasil" : "Lanjut →";
+}
+function next(){
+  if(answers[idx]===null) return;
+  if(idx < ITEMS.length-1){ idx++; render(); }
+  else { const firstEmpty = answers.indexOf(null); if(firstEmpty>=0){ idx=firstEmpty; render(); } else results(); }
+}
+
+function scores(){
+  const sum = {O:0,C:0,E:0,A:0,N:0};
+  ITEMS.forEach(([t,k],i) => { const v = answers[i]; sum[t] += k>0 ? v : 6-v; });
+  const pct = {};
+  ORDER.forEach(t => pct[t] = Math.round((sum[t]-10)/40*100));
+  return pct;
+}
+function level(p){ return p>=65 ? "hi" : p>=40 ? "mid" : "lo"; }
+const LVL = {hi:"Tinggi",mid:"Sedang",lo:"Rendah"};
+
+const GROUPS = {
+ NT:{name:"Analis",color:"#7a4fa3"}, NF:{name:"Diplomat",color:"#3d8a5a"},
+ SJ:{name:"Penjaga",color:"#2f6f9f"}, SP:{name:"Penjelajah",color:"#c9792b"}
+};
+const TYPES = {
+ INTJ:["Sang Arsitek","Pemikir strategis yang mandiri, visioner, dan selalu punya rencana jangka panjang.",["Berpikir sistemik dan strategis","Mandiri dan tegas mengambil keputusan","Standar kualitas tinggi"],["Bisa terkesan dingin atau arogan","Kurang sabar dengan inefisiensi"],"Arsitek solusi, strategi, riset, konsultan teknis"],
+ INTP:["Sang Pemikir","Analitis, penasaran, dan senang membongkar cara kerja sesuatu sampai ke akarnya.",["Logika tajam dan objektif","Kreatif memecahkan masalah rumit","Cepat menangkap konsep abstrak"],["Sering menunda eksekusi","Kurang peka pada sisi emosional"],"R&D, engineering, analis data, arsitektur sistem"],
+ ENTJ:["Sang Komandan","Pemimpin alami yang tegas, ambisius, dan fokus pada hasil.",["Kepemimpinan dan visi yang kuat","Efisien dan terorganisir","Berani mengambil keputusan sulit"],["Bisa terlalu dominan","Kurang sabar terhadap perasaan orang lain"],"Manajemen, bisnis, pengembangan usaha, eksekutif"],
+ ENTP:["Sang Pendebat","Cerdas, cepat berpikir, suka tantangan intelektual dan ide-ide baru.",["Inovatif dan banyak ide","Pandai berargumen dan meyakinkan","Adaptif terhadap perubahan"],["Mudah bosan dengan rutinitas","Kadang argumentatif berlebihan"],"Presales, konsultan, wirausaha, pemasaran, inovasi produk"],
+ INFJ:["Sang Advokat","Idealis yang tenang, berwawasan dalam, dan didorong oleh nilai serta makna.",["Empati dan intuisi tajam","Berkomitmen pada nilai","Visioner dan penuh pertimbangan"],["Mudah lelah secara emosional","Perfeksionis dan sulit menerima kritik"],"Konseling, pengembangan SDM, penulisan, pendidikan"],
+ INFP:["Sang Mediator","Idealis yang hangat, kreatif, dan setia pada nilai pribadinya.",["Kreatif dan imajinatif","Empatik dan tulus","Terbuka terhadap perbedaan"],["Terlalu idealis","Sulit dengan detail dan tenggat"],"Penulisan, desain, psikologi, kerja sosial"],
+ ENFJ:["Sang Protagonis","Karismatik dan inspiratif, senang membimbing dan menyatukan orang.",["Komunikator yang memikat","Peduli dan suportif","Mampu menggerakkan tim"],["Terlalu memikirkan pendapat orang","Sulit berkata tidak"],"Kepemimpinan tim, pelatihan, account management, HR"],
+ ENFP:["Sang Juru Kampanye","Antusias, kreatif, dan mudah bergaul, selalu melihat kemungkinan baru.",["Penuh energi dan antusiasme","Pandai membangun relasi","Kreatif dan optimistis"],["Mudah teralihkan","Kurang konsisten menuntaskan detail"],"Pemasaran, presales, komunikasi, kreatif, wirausaha"],
+ ISTJ:["Sang Ahli Logistik","Praktis, bertanggung jawab, dan sangat dapat diandalkan.",["Teliti dan terorganisir","Konsisten dan menepati janji","Menghargai prosedur"],["Kaku terhadap perubahan","Kurang fleksibel dengan ide baru"],"Operasional, audit, administrasi sistem, manajemen proyek"],
+ ISFJ:["Sang Pelindung","Hangat, setia, dan rajin, senang memastikan orang lain terbantu.",["Telaten dan dapat diandalkan","Peduli pada kebutuhan orang lain","Memperhatikan detail"],["Sulit menolak permintaan","Menyimpan stres sendiri"],"Layanan pelanggan, kesehatan, administrasi, support"],
+ ESTJ:["Sang Eksekutif","Pengelola yang tegas, terstruktur, dan berorientasi pada aturan serta hasil.",["Organisator yang handal","Tegas dan jujur","Disiplin menuntaskan pekerjaan"],["Bisa terlalu kaku","Kurang sabar dengan cara berbeda"],"Manajemen operasional, project management, delivery lead"],
+ ESFJ:["Sang Konsul","Ramah, perhatian, dan senang menjaga keharmonisan kelompok.",["Pandai membangun hubungan","Kooperatif dan suportif","Terorganisir"],["Sensitif terhadap kritik","Terlalu butuh pengakuan"],"Account management, HR, event, layanan pelanggan"],
+ ISTP:["Sang Virtuoso","Pemecah masalah praktis yang tenang, suka mengutak-atik dan mencoba langsung.",["Tenang di bawah tekanan","Terampil secara teknis","Praktis dan logis"],["Kurang suka komitmen jangka panjang","Terkesan tertutup"],"Engineering lapangan, troubleshooting, infrastruktur, teknik"],
+ ISFP:["Sang Petualang","Lembut, artistik, dan menikmati pengalaman saat ini.",["Kreatif dan estetis","Fleksibel dan santai","Peka terhadap orang lain"],["Menghindari konflik","Kurang suka perencanaan jangka panjang"],"Desain, seni, fotografi, layanan personal"],
+ ESTP:["Sang Pengusaha","Energik, berani, dan berorientasi aksi, cepat membaca situasi.",["Cepat bertindak dan beradaptasi","Persuasif dan percaya diri","Pandai bernegosiasi"],["Impulsif","Kurang sabar dengan perencanaan detail"],"Sales, negosiasi, wirausaha, manajemen krisis"],
+ ESFP:["Sang Penghibur","Spontan, ceria, dan senang menjadi pusat suasana.",["Ramah dan menyenangkan","Praktis dan adaptif","Pandai membaca suasana hati orang"],["Mudah bosan","Kurang fokus pada rencana jangka panjang"],"Hospitality, event, sales, hiburan"]
+};
+
+function mbti(p){
+  const d = [
+    ["E","I","Ekstraversi","Introversi",p.E],
+    ["N","S","Intuisi","Sensing",p.O],
+    ["F","T","Feeling","Thinking",p.A],
+    ["J","P","Judging","Perceiving",p.C]
+  ];
+  const code = d.map(x => x[4]>=50 ? x[0] : x[1]).join("");
+  const id = p.N>=50 ? "T" : "A";
+  return {d, code, id};
+}
+
+function results(){
+  const p = scores();
+  const m = mbti(p);
+  const T = TYPES[m.code];
+  const g = m.code[1]==="N" ? GROUPS["N"+m.code[2]] : GROUPS["S"+m.code[3]];
+  $("typeCode").innerHTML = `${m.code}<small>-${m.id}</small>`;
+  $("typeName").textContent = T[0];
+  $("typeGroup").textContent = g.name;
+  $("typeGroup").style.background = g.color;
+  $("typeDesc").innerHTML = `
+    <p>${T[1]}</p>
+    <h3>Kekuatan</h3><ul>${T[2].map(s=>`<li>${s}</li>`).join("")}</ul>
+    <h3>Tantangan</h3><ul>${T[3].map(s=>`<li>${s}</li>`).join("")}</ul>
+    <h3>Cocok untuk peran</h3><p style="font-size:.93rem">${T[4]}</p>
+    <h3>${m.id==="A" ? "Assertive (-A)" : "Turbulent (-T)"}</h3>
+    <p style="font-size:.93rem">${m.id==="A" ? "Anda cenderung tenang, percaya diri, dan tidak mudah terganggu oleh stres." : "Anda cenderung peka terhadap stres dan perfeksionis. Ini sering mendorong Anda untuk terus memperbaiki diri."}</p>`;
+
+  const db = $("dichos"); db.innerHTML = "";
+  m.d.forEach(([a,b,an,bn,v]) => {
+    const leftOn = v>=50, str = Math.round(Math.abs(v-50)*2);
+    const w = Math.abs(v-50);
+    const pos = leftOn ? `right:50%;width:${w}%` : `left:50%;width:${w}%`;
+    db.insertAdjacentHTML("beforeend", `
+      <div class="dicho">
+        <div class="dicho-lbl"><span class="${leftOn?'on':'off'}">${an} (${a})</span><span class="${leftOn?'off':'on'}">${bn} (${b})</span></div>
+        <div class="dbar"><i style="${pos}"></i></div>
+        <div class="str">${leftOn?a:b} · kekuatan preferensi ${str}%${str<20?" (seimbang)":""}</div>
+      </div>`);
+  });
+  const nStr = Math.round(Math.abs(p.N-50)*2);
+  db.insertAdjacentHTML("beforeend", `
+      <div class="dicho">
+        <div class="dicho-lbl"><span class="${m.id==='A'?'on':'off'}">Assertive (A)</span><span class="${m.id==='T'?'on':'off'}">Turbulent (T)</span></div>
+        <div class="dbar"><i style="${m.id==='A'?`right:50%;width:${Math.abs(p.N-50)}%`:`left:50%;width:${Math.abs(p.N-50)}%`}"></i></div>
+        <div class="str">${m.id} · kekuatan preferensi ${nStr}%${nStr<20?" (seimbang)":""}</div>
+      </div>`);
+
+  renderBigFive(p);
+  show("result");
+}
+
+function renderBigFive(p){
+  const box = $("traits"); box.innerHTML = "";
+  ORDER.forEach(t => {
+    const T = TRAITS[t], l = level(p[t]);
+    box.insertAdjacentHTML("beforeend", `
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">${T.name}</span><span class="trait-lvl">${LVL[l]} · ${p[t]}%</span></div>
+        <div class="bar"><i style="width:${Math.max(p[t],2)}%;background:${T.color}"></i></div>
+        <p>${T[l]}</p>
+      </div>`);
+  });
+}
+
+$("startBtn").onclick = () => { const f = answers.indexOf(null); idx = f>=0 ? f : 0; show("quiz"); render(); if(f<0) results(); };
+$("resetBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; show("quiz"); render(); };
+$("backBtn").onclick = () => { if(idx>0){ idx--; render(); } };
+$("nextBtn").onclick = next;
+$("retakeBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; show("quiz"); render(); };
+$("copyBtn").onclick = async () => {
+  const p = scores();
+  const m = mbti(p);
+  const txt = `Tipe MBTI saya (estimasi dari Big Five): ${m.code}-${m.id} – ${TYPES[m.code][0]}\n\nDetail Big Five:\n` + ORDER.map(t => `• ${TRAITS[t].name}: ${p[t]}% (${LVL[level(p[t])]})`).join("\n");
+  try{ await navigator.clipboard.writeText(txt); $("toast").textContent = "Hasil disalin ke clipboard."; }
+  catch(e){ $("toast").textContent = "Gagal menyalin. Silakan screenshot hasilnya."; }
+};
+
+load();
+const answered = answers.filter(a=>a!==null).length;
+if(answered>0 && answered<ITEMS.length){ $("startBtn").textContent = `Lanjutkan (${answered}/${ITEMS.length})`; $("resumeRow").classList.remove("hidden"); }
+else if(answered===ITEMS.length){ $("startBtn").textContent = "Lihat hasil terakhir"; $("resumeRow").classList.remove("hidden"); $("resetBtn").textContent="Ikuti tes baru"; }
+</script>
+</body>
+</html>
