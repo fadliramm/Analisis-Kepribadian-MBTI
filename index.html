@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kuesioner Kepribadian – Tipe MBTI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f3ee; --card:#fffdf9; --ink:#1f1d1a; --muted:#6b665e; --line:#e4ddd2;
@@ -78,6 +78,125 @@ ul.plain li{margin:.25em 0}
 .groups span{color:#fff;font-size:.8rem;font-weight:600;padding:4px 11px;border-radius:20px}
 details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .toast{font-size:.85rem;color:var(--accent);text-align:center;margin-top:8px;min-height:1.2em}
+/* ===== LAPORAN ===== */
+body.report .wrap{max-width:820px}
+.namefield{margin:4px 0 14px}
+.namefield label{display:block;font-weight:600;font-size:.92rem;margin-bottom:6px}
+.namefield input{width:100%;font:500 1rem Inter,sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.namefield input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.namefield small{color:var(--muted);font-size:.8rem}
+#rpage{--acc:#2f5d50;--soft:#e3ece8;background:#fffdf9;border:1px solid var(--line);border-radius:24px;padding:22px 22px 18px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 8px 30px -18px rgba(60,40,10,.25)}
+.ico{width:20px;height:20px;flex:none}
+.pg-top{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pg-top .brand{color:var(--ink)}
+.pg-head,.cover{display:grid;grid-template-columns:1fr 170px;gap:12px;align-items:center;padding:18px 0 6px}
+.accent{display:block;width:44px;height:5px;border-radius:4px;background:var(--acc);margin-bottom:12px}
+#rpage h2{font-family:Inter,sans-serif;font-weight:800;font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 10px}
+.lead{color:#4a463f;font-size:1rem;margin:0 0 10px}
+.tchip{display:inline-block;font-size:.95rem;font-weight:600;margin-top:4px}
+.tchip b{color:var(--acc);font-weight:800}
+.hero{width:100%;height:auto}
+.cv-name{font-family:Inter,sans-serif;font-weight:800;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1;letter-spacing:-.04em;word-break:break-word}
+.cv-code{font-family:Inter,sans-serif;font-weight:800;font-size:clamp(2.8rem,11vw,4.4rem);line-height:1;letter-spacing:-.03em;color:var(--acc)}
+.cv-code small{font-size:.38em;color:var(--muted);letter-spacing:0;margin-left:2px}
+#rpage h2.cv-sub{font-size:1.35rem;margin:10px 0 8px;letter-spacing:-.02em}
+.cv-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:20px;background:var(--soft);color:var(--acc)}
+.chip.solid{background:var(--acc);color:#fff}
+.blk{background:#f8f5ef;border:1px solid #efe9df;border-radius:18px;padding:16px;margin-top:14px}
+.blk-h{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.blk-h h3{font-family:Inter,sans-serif;font-size:1.12rem;font-weight:800;letter-spacing:-.015em;margin:2px 0 3px}
+.blk-h p{margin:0;font-size:.92rem;color:#5a554c;line-height:1.45}
+.bic{width:40px;height:40px;border-radius:50%;background:var(--soft);color:var(--acc);display:grid;place-items:center;flex:none}
+.bic .ico{width:21px;height:21px}
+.bic.sm{width:34px;height:34px}.bic.sm .ico{width:18px;height:18px}
+.tic{width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--acc);display:grid;place-items:center;flex:none}
+.tic .ico{width:18px;height:18px}
+.tiles{display:grid;gap:8px;grid-template-columns:repeat(2,1fr)}
+.tiles.n3{grid-template-columns:repeat(3,1fr)}
+.tile{background:#fff;border:1px solid #ece6db;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;font-size:.9rem;line-height:1.38}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.steps li{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #ece6db;border-radius:12px;padding:10px 12px;font-size:.92rem;line-height:1.38}
+.steps li b{width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:.82rem;flex:none}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:7px;grid-template-columns:1fr 1fr}
+.checks li{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid #ece6db;border-radius:12px;padding:10px 12px;font-size:.92rem;line-height:1.38}
+.checks li .ico{color:#fff;background:var(--acc);border-radius:50%;padding:3px;width:20px;height:20px;stroke-width:3}
+.rows{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.rows li{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #ece6db;border-radius:12px;padding:8px 12px;font-size:.92rem;line-height:1.38}
+.quotes{display:grid;gap:8px}
+.q{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #ece6db;border-radius:14px;padding:12px;font-size:.95rem;font-style:italic}
+.q .ico{color:var(--acc)}
+.dims2{display:grid;gap:4px}
+.drow{display:grid;grid-template-columns:34px 82px 1fr 82px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #ece6db}
+.drow:last-child{border-bottom:0}
+.dside small{display:block;font-size:.76rem;color:var(--muted)}
+.dside b{font-size:1.2rem;color:#a39d92}
+.dside.on b{color:var(--acc)}
+.dside.r{text-align:right}
+.dbar2{height:10px;background:#ebe5da;border-radius:8px;position:relative}
+.dbar2::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:#bdb5a7}
+.dbar2 i{position:absolute;top:0;bottom:0;background:var(--acc);border-radius:8px}
+.tocg{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.tocb{display:flex;gap:9px;align-items:center;text-align:left;background:#fff;border:1px solid #ece6db;border-radius:12px;padding:9px 10px;font:500 .84rem Inter,sans-serif;color:var(--ink);cursor:pointer;line-height:1.25}
+.tocb:hover{border-color:var(--acc)}
+.tocb small{display:block;color:var(--acc);font-weight:700;font-size:.72rem}
+.letters{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+.letter{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #ece6db;border-radius:14px;padding:10px 12px;font-size:.9rem;line-height:1.38}
+.lc{width:42px;height:42px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font:800 1.25rem Inter,sans-serif;flex:none}
+.bf{display:grid;gap:10px}
+.bfh{display:flex;justify-content:space-between;font-size:.88rem}
+.bfh b{color:var(--acc)}
+.bfb{height:9px;background:#ebe5da;border-radius:8px;overflow:hidden;margin-top:4px}
+.bfb i{display:block;height:100%;border-radius:8px}
+.mxwrap{display:grid;gap:12px}
+.mxg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mx{border-radius:12px;padding:10px 4px;text-align:center;font-size:.85rem;display:flex;flex-direction:column;align-items:center;gap:3px;border:1.5px solid}
+.mx .ico{width:22px;height:22px}
+.mx small{font-size:.62rem;font-weight:700;background:#fff;color:var(--acc);border-radius:8px;padding:1px 6px}
+.mx.g{background:#e7f3ea;border-color:#9fcfae;color:#2f7a52}
+.mx.b{background:#e7eef8;border-color:#a7bfe0;color:#2f5f94}
+.mx.r{background:#fbeceb;border-color:#e3a9a5;color:#b0413b;border-style:dashed}
+.mx.me{background:var(--acc);border-color:var(--acc);color:#fff}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1.5px solid}
+.legend i.g{background:#e7f3ea;border-color:#9fcfae}.legend i.b{background:#e7eef8;border-color:#a7bfe0}.legend i.r{background:#fbeceb;border-color:#e3a9a5;border-style:dashed}
+.mcols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mcol{border-radius:16px;padding:12px;border:1px solid}
+.mcol h4{margin:0 0 4px;font:800 1rem Inter,sans-serif}
+.mcol p{margin:0 0 8px;font-size:.82rem;color:#5a554c}
+.mcol.g{background:#f3faf5;border-color:#cfe6d6}.mcol.g h4{color:#2f7a52}
+.mcol.b{background:#f2f6fc;border-color:#d1def0}.mcol.b h4{color:#2f5f94}
+.mcol.r{background:#fdf4f3;border-color:#f0d0cd}.mcol.r h4{color:#b0413b}
+.mi{background:#fff;border-radius:10px;padding:7px 9px;margin-top:6px;font-size:.8rem;line-height:1.35;display:grid;grid-template-columns:42px 1fr;gap:6px}
+.mi b{font-size:.82rem}
+.blk.end{text-align:center;background:var(--soft);border-color:transparent}
+.blk.end h3{font:800 1.2rem Inter,sans-serif;margin:4px 0}
+.blk.end .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.blk.end .btn .ico{width:18px;height:18px}
+.fine{font-size:.78rem;color:var(--muted);margin:14px 4px 0}
+.pg-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:18px;padding-top:12px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rnav{position:sticky;bottom:0;z-index:5;margin-top:14px;background:rgba(246,243,238,.94);backdrop-filter:blur(8px);padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+.rnav .rprog{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:8px}
+.rnav .rprog i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.rnav .rrow{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.rnav button{appearance:none;border:1px solid var(--accent);background:#fff;color:var(--accent);font:600 .95rem Inter,sans-serif;padding:10px 14px;border-radius:12px;cursor:pointer}
+.rnav button.pri{background:var(--accent);color:#fff}
+.rnav button:disabled{opacity:.35;cursor:default}
+.rnav select{width:100%;font:500 .9rem Inter,sans-serif;padding:10px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);min-width:0}
+@media (max-width:620px){
+ #rpage{padding:16px 14px 14px;border-radius:20px}
+ .pg-head,.cover{grid-template-columns:1fr 96px}
+ .tiles.n3,.tiles.n4{grid-template-columns:1fr 1fr}
+ .tiles.n3 .tile:last-child:nth-child(odd){grid-column:span 2}
+ .checks,.letters{grid-template-columns:1fr}
+ .tocg{grid-template-columns:1fr 1fr}
+ .mcols{grid-template-columns:1fr}
+ .drow{grid-template-columns:30px 70px 1fr 70px;gap:7px}
+ .rnav button{padding:10px 11px}
+ .rnav .lbl{display:none}
+}
+@media (min-width:621px){ .tiles.n4{grid-template-columns:repeat(4,1fr)} }
+
 </style>
 </head>
 <body>
@@ -95,6 +214,7 @@ details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
       <li>Tidak ada jawaban benar atau salah. Ikuti kesan pertama.</li>
       <li>Jawaban Anda hanya diproses di perangkat Anda dan tidak dikirim ke mana pun. Kami hanya mencatat statistik kunjungan anonim (tanpa cookie), termasuk kode tipe hasil tes, untuk mengetahui jumlah pengunjung.</li>
     </ul>
+    <div class="namefield"><label for="nameInput">Nama panggilan (opsional)</label><input id="nameInput" type="text" maxlength="24" autocomplete="given-name" placeholder="Contoh: Ayu"><small>Ditampilkan di sampul laporanmu. Hanya disimpan di perangkat ini.</small></div>
     <div class="row"><button class="btn" id="startBtn">Mulai</button></div>
     <div class="row hidden" id="resumeRow"><button class="btn ghost" id="resetBtn">Ulang dari awal</button></div>
   </div>
@@ -110,10 +230,10 @@ details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
     </div>
     <p>Kombinasi keempatnya menghasilkan <strong>16 tipe kepribadian</strong>, misalnya INTJ atau ENFP. Ke-16 tipe itu biasanya dikelompokkan menjadi empat:</p>
     <div class="groups">
-      <span style="background:#7a4fa3">Analis · NT</span>
-      <span style="background:#3d8a5a">Diplomat · NF</span>
-      <span style="background:#2f6f9f">Penjaga · SJ</span>
-      <span style="background:#c9792b">Penjelajah · SP</span>
+      <span style="background:#6d4c9f">Rasional · NT</span>
+      <span style="background:#2f7a52">Idealis · NF</span>
+      <span style="background:#2f5f94">Penjaga · SJ</span>
+      <span style="background:#b9702a">Artisan · SP</span>
     </div>
     <p>Huruf kelima, <strong>-A (Assertive)</strong> atau <strong>-T (Turbulent)</strong>, menggambarkan seberapa tenang atau peka Anda terhadap stres.</p>
     <h3>Bagaimana tes ini bekerja?</h3>
@@ -139,33 +259,9 @@ details.bf summary{cursor:pointer;font-weight:600;color:var(--accent)}
 
 <!-- RESULT -->
 <section id="result" class="hidden">
-  <p class="muted">Hasil Anda · tipe MBTI</p>
-  <div class="typebox">
-    <div class="typecode" id="typeCode"></div>
-    <div class="typename" id="typeName"></div>
-    <div class="typegroup" id="typeGroup"></div>
-  </div>
-
-  <div class="card" id="typeDesc"></div>
-
-  <h2>Kekuatan preferensi</h2>
-  <div class="card" id="dichos"></div>
-
-  <details class="card bf">
-    <summary>Lihat detail skor Big Five</summary>
-    <div id="traits"></div>
-    <p class="muted">Garis putih pada bar = batas Rendah · Sedang · Tinggi</p>
-  </details>
-
-  <div class="note">
-    <strong>Catatan:</strong> Tipe MBTI di sini <strong>diestimasi</strong> dari skor Big Five, memakai korelasi yang sudah diteliti (McCrae &amp; Costa, 1989): Ekstraversi → E/I, Keterbukaan → N/S, Keramahan → F/T, Kehati-hatian → J/P, dan Neurotisisme → -A/-T. Hasilnya bukan tes MBTI® resmi. Preferensi yang kekuatannya di bawah ~20% berarti Anda berada di tengah, jadi huruf itu bisa berubah saat tes ulang. Hasil ini untuk refleksi diri, <strong>bukan diagnosis psikologis</strong>, dan tidak cocok dipakai untuk seleksi kerja.
-  </div>
-
-  <div class="row">
-    <button class="btn" id="copyBtn">Salin hasil</button>
-    <button class="btn ghost" id="retakeBtn">Ulangi tes</button>
-  </div>
-  <div class="toast" id="toast"></div>
+  <div id="rpage"></div>
+  <nav class="rnav" aria-label="Navigasi laporan"><div class="rprog"><i id="rbar"></i></div>
+    <div class="rrow"><button id="rprev">← <span class="lbl">Sebelumnya</span></button><select id="rsel" aria-label="Pilih halaman"></select><button id="rnext" class="pri"><span class="lbl">Berikutnya</span> →</button></div></nav>
 </section>
 
 </div>
@@ -259,7 +355,7 @@ function save(){ try{ localStorage.setItem(KEY, JSON.stringify(answers)); }catch
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(s) && s.length===ITEMS.length) answers = s; }catch(e){} }
 
 const $ = id => document.getElementById(id);
-function show(id){ ["intro","quiz","result"].forEach(s => $(s).classList.toggle("hidden", s!==id)); window.scrollTo(0,0); }
+function show(id){ if(id!=="result") document.body.classList.remove("report"); ["intro","quiz","result"].forEach(s => $(s).classList.toggle("hidden", s!==id)); window.scrollTo(0,0); }
 
 function render(){
   const [ , , text] = ITEMS[idx];
@@ -337,44 +433,12 @@ function mbti(p){
 
 function results(){
   const p = scores();
-  const m = mbti(p);
-  const T = TYPES[m.code];
-  const g = m.code[1]==="N" ? GROUPS["N"+m.code[2]] : GROUPS["S"+m.code[3]];
-  $("typeCode").innerHTML = `${m.code}<small>-${m.id}</small>`;
-  $("typeName").textContent = T[0];
-  $("typeGroup").textContent = g.name;
-  $("typeGroup").style.background = g.color;
-  $("typeDesc").innerHTML = `
-    <p>${T[1]}</p>
-    <h3>Kekuatan</h3><ul>${T[2].map(s=>`<li>${s}</li>`).join("")}</ul>
-    <h3>Tantangan</h3><ul>${T[3].map(s=>`<li>${s}</li>`).join("")}</ul>
-    <h3>Cocok untuk peran</h3><p style="font-size:.93rem">${T[4]}</p>
-    <h3>${m.id==="A" ? "Assertive (-A)" : "Turbulent (-T)"}</h3>
-    <p style="font-size:.93rem">${m.id==="A" ? "Anda cenderung tenang, percaya diri, dan tidak mudah terganggu oleh stres." : "Anda cenderung peka terhadap stres dan perfeksionis. Ini sering mendorong Anda untuk terus memperbaiki diri."}</p>`;
-
-  const db = $("dichos"); db.innerHTML = "";
-  m.d.forEach(([a,b,an,bn,v]) => {
-    const leftOn = v>=50, str = Math.round(Math.abs(v-50)*2);
-    const w = Math.abs(v-50);
-    const pos = leftOn ? `right:50%;width:${w}%` : `left:50%;width:${w}%`;
-    db.insertAdjacentHTML("beforeend", `
-      <div class="dicho">
-        <div class="dicho-lbl"><span class="${leftOn?'on':'off'}">${an} (${a})</span><span class="${leftOn?'off':'on'}">${bn} (${b})</span></div>
-        <div class="dbar"><i style="${pos}"></i></div>
-        <div class="str">${leftOn?a:b} · kekuatan preferensi ${str}%${str<20?" (seimbang)":""}</div>
-      </div>`);
-  });
-  const nStr = Math.round(Math.abs(p.N-50)*2);
-  db.insertAdjacentHTML("beforeend", `
-      <div class="dicho">
-        <div class="dicho-lbl"><span class="${m.id==='A'?'on':'off'}">Assertive (A)</span><span class="${m.id==='T'?'on':'off'}">Turbulent (T)</span></div>
-        <div class="dbar"><i style="${m.id==='A'?`right:50%;width:${Math.abs(p.N-50)}%`:`left:50%;width:${Math.abs(p.N-50)}%`}"></i></div>
-        <div class="str">${m.id} · kekuatan preferensi ${nStr}%${nStr<20?" (seimbang)":""}</div>
-      </div>`);
-
-  renderBigFive(p);
-  if(!window.__tracked){ window.__tracked = true; track("selesai-tes","Tes selesai"); track("hasil-"+m.code+"-"+m.id, "Hasil "+m.code+"-"+m.id); }
+  let nm = ""; try{ nm = localStorage.getItem("ipip50_name")||""; }catch(e){}
+  R = buildR(p, nm);
+  document.body.classList.add("report");
   show("result");
+  goPage(1);
+  if(!window.__tracked){ window.__tracked = true; track("selesai-tes","Tes selesai"); track("hasil-"+R.code+"-"+R.id, "Hasil "+R.code+"-"+R.id); }
 }
 
 function renderBigFive(p){
@@ -394,19 +458,526 @@ $("startBtn").onclick = () => { track("mulai-tes","Klik Mulai"); const f = answe
 $("resetBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; show("quiz"); render(); };
 $("backBtn").onclick = () => { if(idx>0){ idx--; render(); } };
 $("nextBtn").onclick = next;
-$("retakeBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; show("quiz"); render(); };
-$("copyBtn").onclick = async () => {
-  const p = scores();
-  const m = mbti(p);
-  const txt = `Tipe MBTI saya (estimasi dari Big Five): ${m.code}-${m.id} – ${TYPES[m.code][0]}\n\nDetail Big Five:\n` + ORDER.map(t => `• ${TRAITS[t].name}: ${p[t]}% (${LVL[level(p[t])]})`).join("\n");
-  try{ await navigator.clipboard.writeText(txt); $("toast").textContent = "Hasil disalin ke clipboard."; }
-  catch(e){ $("toast").textContent = "Gagal menyalin. Silakan screenshot hasilnya."; }
-};
+const nameEl = $("nameInput");
+try{ nameEl.value = localStorage.getItem("ipip50_name")||""; }catch(e){}
+nameEl.addEventListener("input", () => { try{ localStorage.setItem("ipip50_name", nameEl.value.trim()); }catch(e){} if(R){ R.name = nameEl.value.trim(); } });
 
 load();
 const answered = answers.filter(a=>a!==null).length;
 if(answered>0 && answered<ITEMS.length){ $("startBtn").textContent = `Lanjutkan (${answered}/${ITEMS.length})`; $("resumeRow").classList.remove("hidden"); }
 else if(answered===ITEMS.length){ $("startBtn").textContent = "Lihat hasil terakhir"; $("resumeRow").classList.remove("hidden"); $("resetBtn").textContent="Ikuti tes baru"; }
+</script>
+<script>
+// ===== KONTEN LAPORAN: TIPE & PENGANTAR =====
+const GRP = {
+  NT:{name:"Rasional",color:"#6d4c9f",soft:"#efe9f6"},
+  NF:{name:"Idealis",color:"#2f7a52",soft:"#e6f1ea"},
+  SJ:{name:"Penjaga",color:"#2f5f94",soft:"#e5edf6"},
+  SP:{name:"Artisan",color:"#b9702a",soft:"#f7ecdf"}
+};
+const T16 = {
+ INTJ:{n:"Perancang Strategi",core:"Kekuatanmu terlihat dari cara kamu melihat pola besar dan menyusun rencana jangka panjang. Kamu cenderung tenang memikirkan masalah rumit sampai menemukan jalan yang masuk akal.",s:["Melihat arah sebelum orang lain.","Menyusun rencana yang matang.","Menjaga standar kerja yang tinggi."],mid:["Bagikan rencana sebelum benar-benar sempurna.","Tanyakan perasaan orang sebelum memberi solusi.","Sisakan ruang untuk hal yang tidak terencana."],roles:"Arsitek solusi, strategi, riset, analis, konsultan teknis"},
+ INTP:{n:"Pemikir Analitis",core:"Kamu senang membongkar cara kerja sesuatu sampai ke akarnya. Pikiranmu mungkin paling hidup saat bertemu pertanyaan yang belum punya jawaban rapi.",s:["Menemukan celah logika dengan cepat.","Memahami konsep abstrak secara mendalam.","Mencari solusi yang tidak biasa."],mid:["Ubah satu ide menjadi langkah nyata minggu ini.","Tetapkan batas waktu untuk riset.","Sampaikan apresiasi, bukan hanya koreksi."],roles:"Engineering, R&D, analis data, arsitektur sistem, penulis teknis"},
+ ENTJ:{n:"Penggerak Visi",core:"Kamu cenderung melihat tujuan dengan jelas dan menggerakkan orang untuk mencapainya. Kamu nyaman mengambil keputusan dan bertanggung jawab atas hasilnya.",s:["Mengubah tujuan menjadi rencana kerja.","Tegas saat keputusan harus diambil.","Menggerakkan tim menuju hasil."],mid:["Dengarkan sampai selesai sebelum memutuskan.","Rayakan proses, bukan hanya hasil.","Beri ruang orang lain memimpin sebagian."],roles:"Manajemen, pengembangan bisnis, konsultan, kepala proyek, eksekutif"},
+ ENTP:{n:"Pencetus Ide",core:"Kamu cepat berpikir, senang berdebat ide, dan melihat kemungkinan di tempat yang tidak terduga. Tantangan baru biasanya membuatmu bersemangat.",s:["Menghasilkan banyak ide segar.","Meyakinkan orang dengan argumen.","Cepat beradaptasi dengan perubahan."],mid:["Tuntaskan satu ide sebelum mengejar yang baru.","Bedakan diskusi seru dari perdebatan yang melukai.","Gunakan rutinitas ringan sebagai pegangan."],roles:"Presales, konsultan, wirausaha, inovasi produk, pemasaran"},
+ INFJ:{n:"Penasihat Bijak",core:"Kamu cenderung tenang, berwawasan dalam, dan digerakkan oleh nilai. Kamu mungkin cepat menangkap apa yang tidak diucapkan orang lain.",s:["Membaca kebutuhan orang dengan peka.","Menghubungkan tindakan dengan makna.","Berkomitmen pada nilai yang dipegang."],mid:["Ucapkan kebutuhanmu secara langsung.","Terima hasil yang cukup baik.","Isi ulang energi sebelum benar-benar habis."],roles:"Konseling, pengembangan SDM, penulisan, pendidikan, desain pengalaman"},
+ INFP:{n:"Penjaga Nilai",core:"Kamu cenderung hangat, imajinatif, dan setia pada nilai pribadimu. Kamu mungkin merasa paling hidup saat pekerjaan dan hidupmu terasa autentik.",s:["Memahami perasaan orang dengan tulus.","Menuangkan ide dalam karya kreatif.","Menerima perbedaan dengan terbuka."],mid:["Pecah impian besar menjadi tenggat kecil.","Sampaikan ketidaksetujuan lebih awal.","Bedakan kritik pada karya dari kritik pada diri."],roles:"Penulisan, desain, psikologi, kerja sosial, konten kreatif"},
+ ENFJ:{n:"Pembimbing Hangat",core:"Kekuatanmu sering muncul saat kamu membimbing dan menyatukan orang. Titik butamu biasanya muncul saat kepedulian pada orang lain membuatmu melupakan dirimu sendiri.",s:["Membaca kebutuhan orang dengan cepat.","Membuat orang merasa diterima.","Memberi semangat saat tim ragu."],mid:["Tunda jawaban ya selama satu hari.","Tanyakan dulu sebelum membantu.","Jadwalkan waktu untuk dirimu sendiri."],roles:"Kepemimpinan tim, pelatihan, account management, HR, komunitas"},
+ ENFP:{n:"Penyulut Semangat",core:"Kamu cenderung antusias, imajinatif, dan hangat. Kamu mungkin merasa paling hidup saat bisa menghubungkan orang, ide, dan makna dalam satu cerita.",s:["Melihat potensi dalam diri orang lain.","Mengejar ide yang terasa bermakna.","Membawa energi segar ke dalam kelompok."],mid:["Sisihkan waktu tenang di antara banyak pertemuan.","Padukan ide besar dengan langkah pertama yang konkret.","Gunakan rencana ringan sebagai pegangan, bukan kurungan."],roles:"Pemasaran, presales, komunikasi, kreatif, wirausaha"},
+ ISTJ:{n:"Penjaga Ketertiban",core:"Kamu cenderung praktis, bertanggung jawab, dan dapat diandalkan. Kamu menimbang informasi, dampak, dan langkah berikutnya dengan cara yang teratur.",s:["Menepati janji dan tenggat.","Teliti pada detail yang penting.","Menjaga proses tetap rapi."],mid:["Beri ruang untuk cara baru yang belum teruji.","Ucapkan apresiasi secara langsung.","Bedakan aturan penting dari kebiasaan lama."],roles:"Operasional, audit, administrasi sistem, manajemen proyek, keuangan"},
+ ISFJ:{n:"Perawat Setia",core:"Kamu cenderung hangat, setia, dan telaten. Kamu senang memastikan orang di sekitarmu terbantu, sering tanpa banyak bicara.",s:["Mengingat kebutuhan kecil orang lain.","Konsisten dan dapat diandalkan.","Menjaga suasana tetap aman."],mid:["Katakan tidak tanpa merasa bersalah.","Sampaikan stres sebelum menumpuk.","Coba satu cara baru setiap bulan."],roles:"Layanan pelanggan, kesehatan, administrasi, support, pendidikan"},
+ ESTJ:{n:"Pengatur Andal",core:"Kamu cenderung tegas, terstruktur, dan fokus pada hasil. Kamu nyaman mengatur orang dan proses agar pekerjaan selesai dengan benar.",s:["Mengorganisasi orang dan sumber daya.","Jujur dan lugas.","Disiplin menuntaskan pekerjaan."],mid:["Tanyakan alasan sebelum menilai cara orang.","Beri ruang untuk percobaan kecil.","Sampaikan koreksi dengan nada yang hangat."],roles:"Manajemen operasional, project management, delivery lead, administrasi"},
+ ESFJ:{n:"Perekat Komunitas",core:"Kamu cenderung ramah, perhatian, dan senang menjaga keharmonisan kelompok. Kamu sering menjadi orang yang membuat semua orang merasa dilibatkan.",s:["Membangun hubungan dengan cepat.","Kooperatif dan suportif.","Mengatur acara dan orang dengan rapi."],mid:["Pisahkan kritik dari harga diri.","Biarkan orang lain mengurus dirinya.","Beri dirimu pujian, bukan hanya menunggu dari orang."],roles:"Account management, HR, event, layanan pelanggan, kesehatan"},
+ ISTP:{n:"Pemecah Masalah",core:"Kamu cenderung tenang, praktis, dan suka mencoba langsung. Kamu sering menemukan solusi dengan mengutak-atik masalah nyata.",s:["Tenang di bawah tekanan.","Terampil memecahkan masalah teknis.","Logis dan efisien."],mid:["Ceritakan perasaan sebelum meledak.","Jelaskan alasan keputusanmu.","Buat satu rencana jangka panjang yang sederhana."],roles:"Engineering lapangan, troubleshooting, infrastruktur, teknik, keamanan"},
+ ISFP:{n:"Seniman Tenang",core:"Kamu cenderung lembut, peka, dan menikmati pengalaman saat ini. Kamu mengekspresikan diri lewat tindakan dan karya, bukan banyak kata.",s:["Peka pada keindahan dan suasana.","Fleksibel dan mudah menyesuaikan.","Tulus memperhatikan orang lain."],mid:["Hadapi konflik kecil sebelum membesar.","Tulis satu tujuan jangka panjang.","Tunjukkan karyamu meski belum sempurna."],roles:"Desain, seni, fotografi, layanan personal, kuliner"},
+ ESTP:{n:"Pelaku Aksi",core:"Kamu cenderung energik, berani, dan cepat membaca situasi. Kamu lebih suka bertindak dan belajar dari hasilnya daripada lama merencanakan.",s:["Cepat bertindak saat ada peluang.","Persuasif dan percaya diri.","Tangguh menghadapi krisis."],mid:["Hitung satu risiko sebelum melompat.","Selesaikan komitmen yang sudah dibuat.","Dengarkan perasaan, bukan hanya fakta."],roles:"Sales, negosiasi, wirausaha, manajemen krisis, operasional lapangan"},
+ ESFP:{n:"Penghidup Suasana",core:"Kamu cenderung spontan, ceria, dan pandai membuat orang merasa senang. Kamu menikmati hidup lewat pengalaman bersama orang lain.",s:["Membuat suasana jadi hangat.","Cepat membaca suasana hati orang.","Praktis dan mudah beradaptasi."],mid:["Sisihkan dana dan waktu untuk masa depan.","Hadapi masalah sebelum dihindari.","Beri ruang untuk waktu tenang."],roles:"Hospitality, event, sales, hiburan, pelatihan"}
+};
+
+// Pengantar per halaman per kelompok (NT/NF/SJ/SP)
+const INTRO = {
+ 4:{NT:"Pikiranmu mungkin bergerak dari pola besar menuju sistem yang masuk akal. Kamu menimbang logika, kemungkinan, dan langkah berikutnya dengan cukup tajam.",NF:"Pikiranmu mungkin bergerak dari makna menuju kemungkinan. Kamu menimbang nilai, dampak pada orang, dan gambaran besar sebelum melangkah.",SJ:"Pikiranmu mungkin bergerak dari hal yang terlihat menuju kesimpulan yang bisa dipakai. Kamu menimbang informasi, dampak, dan langkah berikutnya dengan teratur.",SP:"Pikiranmu mungkin bergerak cepat dari situasi nyata menuju tindakan. Kamu belajar paling baik saat bisa mencoba langsung dan melihat hasilnya."},
+ 5:{NT:"Kekuatanmu sering muncul saat masalah rumit butuh arah. Titik butamu biasanya muncul saat logika berjalan lebih cepat daripada perasaan orang di sekitarmu.",NF:"Kekuatanmu sering muncul saat orang butuh makna dan semangat. Titik butamu biasanya muncul saat kepedulian membuatmu melupakan batas dirimu.",SJ:"Kekuatanmu sering muncul saat sesuatu harus dijaga dan diselesaikan dengan benar. Titik butamu biasanya muncul saat perubahan datang lebih cepat dari rencana.",SP:"Kekuatanmu sering muncul saat situasi menuntut respons cepat. Titik butamu biasanya muncul saat hal jangka panjang terasa jauh dari sekarang."},
+ 6:{NT:"Emosimu mungkin jarang terlihat dari luar, tetapi tetap terasa di dalam. Mengenali tanda stres sejak awal membantumu pulih sebelum pikiranmu terlalu penuh.",NF:"Emosimu mungkin terasa dalam dan cepat menyerap suasana. Mengenali tanda stres sejak awal membantumu pulih sebelum energimu terkuras untuk orang lain.",SJ:"Emosimu mungkin tersimpan rapi di balik tanggung jawab. Mengenali tanda stres sejak awal membantumu pulih sebelum beban terasa terlalu berat.",SP:"Emosimu mungkin muncul lewat tindakan, bukan kata-kata. Mengenali tanda stres sejak awal membantumu pulih sebelum perasaan yang dipendam meledak."},
+ 7:{NT:"Energimu mungkin paling terisi saat ada ruang untuk berpikir dan masalah yang menantang. Ritme yang terlindungi membantumu tetap fokus tanpa kehabisan tenaga.",NF:"Energimu mungkin paling terisi saat harimu terasa bermakna. Ritme yang lembut membantumu tetap hadir untuk orang lain tanpa kehilangan dirimu.",SJ:"Energimu mungkin paling terisi saat hari berjalan teratur dan jelas. Ritme yang konsisten membantumu tetap produktif tanpa memaksa diri.",SP:"Energimu mungkin paling terisi saat ada gerak dan variasi. Ritme yang fleksibel membantumu tetap segar tanpa merasa terkekang."},
+ 8:{NT:"Kamu mungkin berbicara langsung, ringkas, dan berbasis logika. Pesanmu paling sampai saat ketajamanmu ditemani kehangatan.",NF:"Kamu mungkin berbicara dengan hati-hati dan penuh makna. Pesanmu paling sampai saat kepekaanmu ditemani kata-kata yang jelas.",SJ:"Kamu mungkin berbicara jelas, runtut, dan berdasarkan fakta. Pesanmu paling sampai saat keteraturanmu ditemani keterbukaan.",SP:"Kamu mungkin berbicara spontan, praktis, dan to the point. Pesanmu paling sampai saat kelugasanmu ditemani kesabaran mendengar."},
+ 9:{NT:"Kamu mungkin menghadapi konflik sebagai masalah yang perlu dipecahkan. Konflik lebih ringan saat logika dan perasaan sama-sama diberi tempat.",NF:"Kamu mungkin ingin segera memulihkan suasana saat ada konflik. Konflik lebih ringan saat kebutuhanmu sendiri juga ikut disuarakan.",SJ:"Kamu mungkin mencari kejelasan dan keadilan saat ada konflik. Konflik lebih ringan saat perubahan dibicarakan lebih awal.",SP:"Kamu mungkin menghadapi konflik secara langsung atau justru menghindarinya. Konflik lebih ringan saat dibahas selagi masih kecil."},
+ 10:{NT:"Entah kamu sedang sendiri, menjalin hubungan, atau sudah menikah, kamu mungkin menunjukkan cinta lewat pemikiran dan dukungan pada tujuan pasangan. Kedekatan tumbuh saat perasaan juga diucapkan.",NF:"Entah kamu sedang sendiri, menjalin hubungan, atau sudah menikah, kamu mungkin mencari kedekatan yang dalam dan tulus. Hubungan tumbuh saat idealisme bertemu penerimaan.",SJ:"Entah kamu sedang sendiri, menjalin hubungan, atau sudah menikah, kamu mungkin menunjukkan cinta lewat konsistensi dan tanggung jawab. Kedekatan tumbuh saat perasaan juga diucapkan.",SP:"Entah kamu sedang sendiri, menjalin hubungan, atau sudah menikah, kamu mungkin menunjukkan cinta lewat pengalaman dan tindakan nyata. Kedekatan tumbuh saat momen bersama juga diberi kata-kata."},
+ 12:{NT:"Dalam pernikahan dan keluarga besar, kamu mungkin hadir sebagai orang yang memikirkan arah dan solusi. Hubungan terasa lebih aman saat harapan dan batasan dibicarakan dengan jelas.",NF:"Dalam pernikahan dan keluarga besar, kamu mungkin hadir sebagai penjaga kehangatan. Hubungan terasa lebih aman saat kamu juga menjaga ruang untuk dirimu.",SJ:"Dalam pernikahan dan keluarga besar, kamu mungkin hadir sebagai orang yang setia dan dapat diandalkan. Hubungan terasa lebih aman saat peran dibagi dengan adil.",SP:"Dalam pernikahan dan keluarga besar, kamu mungkin hadir sebagai orang yang tenang dan siap membantu. Hubungan terasa lebih aman saat harapan dibicarakan dengan jelas."},
+ 13:{NT:"Sebagai anak, saudara, atau bagian keluarga besar, kamu mungkin menjadi pemberi solusi yang tenang. Kepedulianmu lebih terasa saat disertai perhatian dan kata-kata hangat.",NF:"Sebagai anak, saudara, atau bagian keluarga besar, kamu mungkin menjadi tempat bercerita. Kepedulianmu lebih sehat saat kamu juga boleh bercerita.",SJ:"Sebagai anak, saudara, atau bagian keluarga besar, kamu mungkin menjadi penjaga tradisi dan tanggung jawab. Kepedulianmu lebih ringan saat tugas dibagi bersama.",SP:"Sebagai anak, saudara, atau bagian keluarga besar, kamu mungkin menjadi orang yang membuat suasana cair dan siap turun tangan. Kepedulianmu lebih terasa saat disertai kehadiran yang konsisten."},
+ 14:{NT:"Jika kamu sudah atau kelak menjadi orang tua, kamu mungkin mendorong anak berpikir mandiri dan bertanya. Kehangatan tumbuh saat logikamu ditemani pelukan dan pujian.",NF:"Jika kamu sudah atau kelak menjadi orang tua, kamu mungkin memberi rasa aman lewat perhatian yang dalam. Kehangatan itu makin sehat saat kamu juga merawat diri.",SJ:"Jika kamu sudah atau kelak menjadi orang tua, kamu mungkin memberi rasa aman lewat rutinitas dan teladan. Struktur itu makin hangat saat ada ruang untuk keunikan anak.",SP:"Jika kamu sudah atau kelak menjadi orang tua, kamu mungkin mengajak anak belajar lewat pengalaman dan petualangan. Kebebasan itu makin aman saat ditemani batasan yang konsisten."},
+ 15:{NT:"Kamu mungkin memilih teman dengan selektif dan menikmati obrolan yang menantang pikiran. Pertemanan terasa paling bermakna saat kedalaman juga diberi kehangatan.",NF:"Kamu mungkin mudah membuat orang merasa diterima. Pertemanan terasa paling bermakna saat kamu juga memilih teman yang memberi dukungan balik.",SJ:"Kamu mungkin menjadi teman yang setia dan selalu ada. Pertemanan terasa paling bermakna saat kamu juga terbuka mencoba hal baru bersama.",SP:"Kamu mungkin mudah akrab lewat aktivitas dan pengalaman bersama. Pertemanan terasa paling bermakna saat keseruan diikuti perhatian yang konsisten."},
+ 16:{NT:"Bekerja, berwirausaha, mencari kerja, atau masih menyiapkan karier, kamu cenderung berkembang saat bisa memecahkan masalah kompleks dan punya otonomi.",NF:"Bekerja, berwirausaha, mencari kerja, atau masih menyiapkan karier, kamu cenderung berkembang saat pekerjaan terasa bermakna dan berdampak pada orang.",SJ:"Bekerja, berwirausaha, mencari kerja, atau masih menyiapkan karier, kamu cenderung berkembang dengan tanggung jawab jelas dan standar yang dihargai.",SP:"Bekerja, berwirausaha, mencari kerja, atau masih menyiapkan karier, kamu cenderung berkembang saat pekerjaan nyata, bervariasi, dan hasilnya cepat terlihat."},
+ 17:{NT:"Di dalam tim, kamu mungkin menjadi orang yang menajamkan arah dan kualitas pemikiran. Kerja sama terasa paling baik saat ketajamanmu dipadukan dengan kesabaran.",NF:"Di dalam tim, kamu mungkin menjadi perekat yang menjaga semangat dan arah. Kerja sama terasa paling baik saat kepedulianmu dipadukan dengan pembagian tugas yang adil.",SJ:"Di dalam tim, kamu mungkin menjadi orang yang memastikan pekerjaan selesai dengan benar. Kerja sama terasa paling baik saat keteraturanmu dipadukan dengan keterbukaan.",SP:"Di dalam tim, kamu mungkin menjadi orang yang bergerak cepat saat ada masalah. Kerja sama terasa paling baik saat kecepatanmu dipadukan dengan koordinasi."},
+ 18:{NT:"Pengaruhmu dapat muncul lewat visi, strategi, dan keputusan yang tegas. Kepemimpinanmu makin kuat saat orang juga merasa didengar.",NF:"Pengaruhmu dapat muncul lewat inspirasi, kepercayaan, dan nilai bersama. Kepemimpinanmu makin kuat saat kehangatan disertai ketegasan.",SJ:"Pengaruhmu dapat muncul lewat konsistensi, keandalan, dan contoh nyata. Kepemimpinanmu makin kuat saat struktur disertai ruang untuk ide baru.",SP:"Pengaruhmu dapat muncul lewat ketenangan, keahlian, dan contoh nyata. Kepemimpinanmu makin kuat saat tindakan disertai penjelasan arah yang jelas."},
+ 19:{NT:"Dalam urusan uang dan keputusan besar, kamu mungkin berpikir jangka panjang dan penuh perhitungan. Rencana ini kuat, asal tetap memberi ruang untuk menikmati hidup.",NF:"Dalam urusan uang dan keputusan besar, kamu mungkin menimbang nilai dan makna. Pilihanmu kuat saat idealisme ditemani angka yang realistis.",SJ:"Dalam urusan uang dan keputusan besar, kamu mungkin berhati-hati dan terencana. Kebiasaan ini kuat, asal tetap terbuka pada peluang yang masuk akal.",SP:"Dalam urusan uang dan keputusan besar, kamu mungkin cepat menangkap peluang dan menikmati hasilnya. Pilihanmu kuat saat spontanitas ditemani rencana sederhana."},
+ 20:{NT:"Sebagai pelajar, mahasiswa, atau orang yang terus belajar di tempat kerja, kamu mungkin belajar paling baik saat bisa memahami sistem dan alasan di baliknya.",NF:"Sebagai pelajar, mahasiswa, atau orang yang terus belajar di tempat kerja, kamu mungkin belajar paling baik saat materi bermakna dan terhubung dengan hidupmu.",SJ:"Sebagai pelajar, mahasiswa, atau orang yang terus belajar di tempat kerja, kamu mungkin belajar paling baik dengan struktur yang jelas dan contoh yang konkret.",SP:"Sebagai pelajar, mahasiswa, atau orang yang terus belajar di tempat kerja, kamu mungkin belajar paling baik lewat praktik langsung dan umpan balik cepat."},
+ 21:{NT:"Bertumbuh bukan berarti meredam ketajaman pikiranmu. Kamu bisa memperluas cara merespons sambil tetap menjaga logika dan standar yang penting.",NF:"Bertumbuh bukan berarti meredam kepekaan dan idealismemu. Kamu bisa memperluas cara merespons sambil tetap menjaga kehangatan dan nilai yang penting.",SJ:"Bertumbuh bukan berarti meninggalkan keteraturan dan tanggung jawabmu. Kamu bisa memperluas cara merespons sambil tetap menjaga hal yang membuatmu dapat diandalkan.",SP:"Bertumbuh bukan berarti meredam spontanitas dan keberanianmu. Kamu bisa memperluas cara merespons sambil tetap menjaga kebebasan yang penting."},
+ 22:{NT:"Rencana ini mengajak kamu mengamati pola, mencoba satu perubahan kecil, memperluas respons, lalu menilai hasilnya seperti sebuah eksperimen.",NF:"Rencana ini mengajak kamu mengamati pola, mencoba satu perubahan kecil, memperluas respons, lalu menilai hasilnya dengan lembut pada dirimu sendiri.",SJ:"Rencana ini mengajak kamu mengamati pola, mencoba satu perubahan kecil, memperluas respons, lalu menilai hasilnya. Pilih langkah yang realistis agar perubahan bisa bertahan.",SP:"Rencana ini mengajak kamu mengamati pola, mencoba satu perubahan kecil, memperluas respons, lalu menilai hasilnya. Buat ringan dan praktis agar tetap seru dijalani."}
+};
+// ===== KONTEN BLOK PER HALAMAN (hal. 4–10) =====
+// st: cards | steps | checks | list | quote ; dim = blok satu dimensi ; mix = satu item per preferensi (urut terkuat)
+const PAGES = {};
+PAGES[4] = {t:"Cara Pikiranmu Bekerja",ic:"brain",b:[
+ {t:"Caramu Menangkap Informasi",ic:"search",st:"steps",dim:"SN",
+  d:{S:"Kamu cenderung memperhatikan detail, pengalaman, dan informasi yang bisa langsung dipakai.",N:"Kamu cenderung menangkap pola, makna, dan kemungkinan di balik informasi."},
+  i:{S:["Mulai dari apa yang benar-benar terjadi.","Catat detail yang memengaruhi keputusan.","Tanyakan tujuan sebelum mengumpulkan informasi baru.","Bandingkan sumber jika ada yang tidak konsisten."],N:["Mulai dari gambaran besar, lalu turun ke detail.","Uji dugaan dengan satu contoh nyata.","Tulis ide sebelum menguap.","Pilih satu kemungkinan untuk dicoba lebih dulu."]}},
+ {t:"Caramu Mengolah Pikiran",ic:"nodes",st:"steps",dim:"EI",
+  d:{E:"Pikiranmu mungkin paling jernih saat kamu bisa membicarakannya dengan orang lain.",I:"Pikiranmu mungkin paling jernih saat kamu punya waktu tenang untuk merenung."},
+  i:{E:["Ajak satu orang berdiskusi sebelum memutuskan.","Ucapkan idemu keras-keras untuk mengujinya.","Beri jeda agar orang lain sempat berpikir.","Tulis kesimpulan setelah diskusi selesai."],I:["Minta waktu berpikir sebelum menjawab.","Tulis pikiranmu agar lebih tertata.","Bagikan kesimpulan, bukan hanya diam.","Pilih satu orang tepercaya untuk menguji ide."]}},
+ {t:"Caramu Memutuskan",ic:"scale",st:"steps",dim:"TF",
+  d:{T:"Saat memilih, kamu mungkin mencari keputusan yang logis, adil, dan bisa dipertanggungjawabkan.",F:"Saat memilih, kamu mungkin menimbang nilai pribadi dan dampaknya pada orang lain."},
+  i:{T:["Kumpulkan fakta yang benar-benar relevan.","Tentukan kriteria sebelum membandingkan pilihan.","Tanyakan siapa yang terdampak dan bagaimana.","Tetapkan batas waktu agar analisis tidak berlarut."],F:["Sebutkan nilai yang paling penting bagimu.","Dengarkan orang yang terdampak keputusan.","Cek fakta agar perasaan tidak menutupi data.","Putuskan, lalu jelaskan alasanmu dengan jujur."]}},
+ {t:"Caramu Bekerja",ic:"gear",st:"steps",dim:"JP",
+  d:{J:"Kamu cenderung bekerja dengan urutan yang jelas: pahami tugas, susun langkah, kerjakan, lalu periksa.",P:"Kamu cenderung bekerja secara fleksibel dan bersemangat saat ada tantangan atau tenggat."},
+  i:{J:["Mulai dari hasil akhir dan langkah pertama.","Kerjakan satu bagian sampai cukup tuntas.","Gunakan daftar periksa untuk meringankan ingatan.","Sisakan waktu memeriksa sebelum tenggat."],P:["Pecah tugas besar menjadi potongan kecil.","Buat tenggat pribadi sebelum tenggat resmi.","Kerjakan bagian yang paling menarik untuk memulai.","Tutup hari dengan mencatat langkah berikutnya."]}},
+ {t:"Ketika Stres Jadi Kendala",ic:"alert",st:"list",dim:"AT",
+  d:{A:"Kamu cenderung tetap tenang, tetapi bisa meremehkan tanda lelah. Pulihkan fokus sebelum beban menumpuk diam-diam.",T:"Saat tuntutan terlalu banyak, kamu mungkin mencoba mengendalikan semuanya. Pulihkan fokus dengan mempersempit pilihan."},
+  i:{A:["Cek energimu sekali sehari, meski merasa baik-baik saja.","Minta masukan sebelum yakin semuanya beres."],T:["Pilih satu prioritas dan hentikan tambahan sementara.","Terima bahwa tidak semua harus selesai bersamaan."]}}
+]};
+PAGES[5] = {t:"Kekuatan dan Titik Buta",ic:"star",b:[
+ {t:"Kekuatan",ic:"leaf",st:"cards",mix:4,d:"Kamu cenderung kuat dalam hal-hal berikut. Orang mungkin mengenalmu dari sini.",
+  i:{E:"Mudah membangun relasi.",I:"Fokus dan mendalam.",S:"Teliti pada fakta.",N:"Melihat peluang baru.",T:"Objektif saat menilai.",F:"Peka pada perasaan orang.",J:"Menuntaskan rencana.",P:"Luwes saat situasi berubah."}},
+ {t:"Titik Buta",ic:"eye",st:"cards",mix:4,d:"Kekuatan yang dipakai berlebihan bisa menjadi titik buta. Kenali tanpa menghakimi diri.",
+  i:{E:"Bicara sebelum mendengar.",I:"Terlalu lama memendam.",S:"Ragu pada ide baru.",N:"Melewatkan detail penting.",T:"Terdengar dingin.",F:"Sulit berkata tidak.",J:"Kaku saat rencana berubah.",P:"Menunda hal penting."}},
+ {t:"Kondisi Terbaikmu",ic:"star",st:"cards",mix:3,d:"Kamu cenderung bersinar saat lingkungan mendukung caramu bekerja.",
+  i:{E:"Tim yang aktif berdiskusi.",I:"Waktu tenang tanpa gangguan.",S:"Tugas yang jelas dan nyata.",N:"Ruang untuk bereksperimen.",T:"Keputusan berdasarkan data.",F:"Tujuan yang bermakna.",J:"Rencana dan tenggat yang jelas.",P:"Kebebasan mengatur cara."}},
+ {t:"Latihan Menyeimbangkan",ic:"gear",st:"cards",mix:4,d:"Keseimbangan bisa dilatih lewat kebiasaan kecil.",
+  i:{E:"Hitung sampai tiga sebelum menanggapi.",I:"Bagikan satu pendapat di setiap rapat.",S:"Coba satu cara baru per minggu.",N:"Cek ulang detail sebelum mengirim.",T:"Tanyakan perasaan sebelum memberi solusi.",F:"Tunda jawaban ya selama satu hari.",J:"Sisakan satu slot kosong di jadwal.",P:"Selesaikan satu tugas sebelum mulai yang baru."}}
+]};
+PAGES[6] = {t:"Emosi, Stres, dan Pemulihan",ic:"heart",b:[
+ {t:"Tanda Stres",ic:"zap",st:"cards",mix:3,d:"Saat stres, polamu mungkin berubah. Tanda ini membantumu menyadari lebih awal.",
+  i:{E:"Mencari keramaian untuk lari dari masalah.",I:"Menghindari obrolan dengan orang dekat.",S:"Terpaku pada detail kecil.",N:"Membayangkan skenario terburuk.",T:"Lebih ketus dan kritis.",F:"Mudah tersinggung atau menangis.",J:"Mengontrol semua hal.",P:"Kehilangan arah dan menunda."}},
+ {t:"Pemicu Umum",ic:"alert",st:"cards",mix:4,d:"Stres cenderung muncul saat kebutuhan dasarmu tidak terpenuhi.",
+  i:{E:"Terlalu lama sendirian.",I:"Jadwal sosial tanpa jeda.",S:"Instruksi yang kabur.",N:"Rutinitas yang monoton.",T:"Keputusan yang tidak logis.",F:"Konflik yang dibiarkan.",J:"Perubahan mendadak.",P:"Aturan yang terlalu ketat."}},
+ {t:"Tangga Pemulihan",ic:"refresh",st:"steps",dim:"EI",
+  d:{E:"Pemulihan biasanya lebih mudah jika dilakukan bertahap, dari menenangkan tubuh sampai kembali terhubung dengan orang.",I:"Pemulihan biasanya lebih mudah jika dilakukan bertahap, dari menyendiri sejenak sampai kembali terhubung dengan orang terdekat."},
+  i:{E:["Gerakkan tubuh: jalan, olahraga, atau menari.","Ceritakan yang terjadi kepada teman tepercaya.","Lakukan satu hal kecil yang bisa selesai.","Kembali ke rutinitas dengan jadwal ringan."],I:["Ambil waktu sendiri di tempat yang tenang.","Tulis atau renungkan apa yang terjadi.","Lakukan aktivitas yang menenangkan tangan.","Ceritakan perasaanmu kepada satu orang tepercaya."]}},
+ {t:"Meminta Bantuan",ic:"chat",st:"quote",dim:"TF",
+  d:{T:"Meminta bantuan mungkin terasa sulit jika kamu terbiasa menyelesaikan semuanya sendiri. Sampaikan singkat apa yang kamu butuhkan.",F:"Meminta bantuan mungkin terasa sulit jika kamu takut merepotkan. Sampaikan dengan jujur apa yang kamu butuhkan."},
+  i:{T:["Aku butuh waktu sendiri dulu, nanti kita bicara.","Bisa bantu satu bagian ini? Aku sedang penuh."],F:["Aku tidak butuh solusi, cukup didengarkan dulu.","Aku sedang lelah, boleh minta bantuan sebentar?"]}}
+]};
+PAGES[7] = {t:"Energi dan Keseharian",ic:"sun",b:[
+ {t:"Sumber Energimu",ic:"battery",st:"list",dim:"EI",
+  d:{E:"Kamu cenderung terisi oleh interaksi, aktivitas, dan suasana yang hidup.",I:"Kamu cenderung terisi oleh waktu sendiri dan sedikit interaksi yang bermakna."},
+  i:{E:["Ngobrol santai dengan teman.","Kegiatan di luar rumah.","Kerja bareng dalam satu ruangan."],I:["Membaca atau belajar topik baru.","Waktu tenang tanpa gangguan.","Obrolan dalam dengan satu orang."]}},
+ {t:"Tanda Energi Menipis",ic:"battery-low",st:"cards",dim:"EI",
+  d:{E:"Energi yang menipis mungkin terlihat dari perubahan kecil sebelum kamu benar-benar lelah.",I:"Energi yang menipis mungkin terlihat dari perubahan kecil sebelum kamu benar-benar lelah."},
+  i:{E:["Gelisah saat sendirian.","Bosan dan mudah teralihkan.","Membatalkan rencana yang biasanya seru.","Tidur larut karena scrolling."],I:["Mudah kesal saat diajak bicara.","Sulit fokus pada tugas penting.","Menunda membalas pesan.","Tidur larut karena pikiran berputar."]}},
+ {t:"Ritme Harian yang Pas",ic:"clock",st:"steps",dim:"JP",
+  d:{J:"Hari yang seimbang tidak harus padat. Cukup beberapa jangkar yang melindungi fokus dan istirahatmu.",P:"Hari yang seimbang tidak harus kaku. Cukup beberapa jangkar ringan yang tetap memberi ruang bergerak."},
+  i:{J:["Pagi: kerjakan tugas tersulit lebih dulu.","Siang: kumpulkan rapat dalam satu waktu.","Sore: tutup hari dengan rencana esok.","Malam: jauhkan layar dan istirahat."],P:["Pagi: pilih tiga hal penting saja.","Siang: kerjakan tugas sesuai energimu.","Sore: sisakan waktu untuk hal spontan.","Malam: catat satu hal yang belum selesai."]}},
+ {t:"Istirahat yang Benar-Benar Mengisi",ic:"moon",st:"checks",dim:"SN",
+  d:{S:"Istirahat terbaik bagimu mungkin aktivitas nyata yang menenangkan indra.",N:"Istirahat terbaik bagimu mungkin waktu yang memberi ruang bagi pikiran untuk bergerak bebas."},
+  i:{S:["Memasak atau berkebun.","Olahraga ringan di luar.","Merapikan satu sudut rumah.","Satu hari tanpa layar."],N:["Berjalan tanpa tujuan.","Membaca buku pilihan sendiri.","Bermain teka-teki atau game strategi.","Menulis jurnal atau ide bebas."]}}
+]};
+PAGES[8] = {t:"Cara Berkomunikasi",ic:"chat",b:[
+ {t:"Kekuatan Komunikasimu",ic:"star",st:"cards",mix:3,d:"Gaya bicaramu punya kekuatan yang membuat orang merasa terbantu.",
+  i:{E:"Membuka obrolan dengan mudah.",I:"Mendengarkan dengan sabar.",S:"Memberi contoh yang konkret.",N:"Menjelaskan gambaran besar.",T:"Menyampaikan inti dengan jelas.",F:"Memilih kata dengan hati-hati.",J:"Runtut dan terstruktur.",P:"Luwes mengikuti arah obrolan."}},
+ {t:"Pola Pesanmu",ic:"nodes",st:"steps",dim:"TF",
+  d:{T:"Pesanmu paling efektif saat logikamu disampaikan dengan urutan yang mudah diikuti.",F:"Pesanmu paling efektif saat kepekaanmu disampaikan dengan maksud yang jelas."},
+  i:{T:["Mulai dengan menyapa, bukan langsung ke masalah.","Sampaikan inti dalam satu kalimat.","Beri satu alasan dan satu contoh.","Tanyakan bagaimana pesanmu diterima."],F:["Mulai dari maksud utama dalam satu kalimat.","Beri satu contoh yang konkret.","Cek pemahaman lawan bicara.","Tutup dengan langkah berikutnya."]}},
+ {t:"Titik Gesekan",ic:"zap",st:"cards",mix:4,d:"Gesekan cenderung muncul saat gaya bicaramu bertemu gaya yang berbeda.",
+  i:{E:"Memotong pembicaraan.",I:"Diam saat merasa tidak didengar.",S:"Terlalu banyak detail.",N:"Melompat antar topik.",T:"Kritik terdengar tajam.",F:"Membaca kritik sebagai penolakan.",J:"Terburu-buru menyimpulkan.",P:"Tidak menutup obrolan dengan keputusan."}},
+ {t:"Kalimat untuk Memperbaiki",ic:"check",st:"checks",dim:"TF",
+  d:{T:"Saat percakapan memanas, kalimat sederhana membantu kalian kembali ke tujuan yang sama.",F:"Saat percakapan memanas, kalimat sederhana membantu kalian kembali ke tujuan yang sama."},
+  i:{T:["Aku mungkin terlalu langsung, maaf.","Menurutmu bagian mana yang kurang adil?","Aku ingin kita sama-sama nyaman dengan solusinya.","Terima kasih sudah jujur padaku."],F:["Aku ingin jujur tentang satu hal.","Bagian mana yang membuatmu kecewa?","Ini penting bagiku, boleh kita bahas?","Terima kasih sudah mau mendengarkan."]}}
+]};
+PAGES[9] = {t:"Menghadapi Konflik",ic:"handshake",b:[
+ {t:"Caramu Merespons Konflik",ic:"chat",st:"cards",dim:"TF",
+  d:{T:"Saat ada konflik, kamu mungkin langsung mencari akar masalah dan solusinya. Perasaan orang bisa terlewat.",F:"Saat ada konflik, kamu mungkin ingin segera memulihkan suasana. Kebutuhanmu sendiri kadang tertunda."},
+  i:{T:["Fokus pada fakta dan solusi.","Tidak suka argumen yang emosional.","Butuh logika agar mau berubah pikiran."],F:["Mencari jalan tengah dengan cepat.","Merasa terluka saat nilaimu diabaikan.","Butuh waktu untuk mengolah emosi."]}},
+ {t:"Saat Rencana Berubah",ic:"refresh",st:"cards",dim:"JP",
+  d:{J:"Perubahan terasa lebih mudah bagimu jika alasannya jelas dan diberi tahu lebih awal.",P:"Perubahan sering kali terasa menarik bagimu, selama ada ruang untuk berpendapat."},
+  i:{J:["Butuh alasan yang jelas.","Perlu waktu menyusun ulang rencana.","Kesal jika perubahan mendadak.","Cepat stabil setelah rencana baru jelas."],P:["Melihat peluang baru di balik perubahan.","Cepat menyusun ide alternatif.","Lelah jika perubahan terus-menerus.","Butuh penjelasan tentang tujuan perubahan."]}},
+ {t:"Langkah Meredakan Ketegangan",ic:"list",st:"steps",dim:"EI",
+  d:{E:"Ketegangan lebih mudah reda jika kamu menghadapinya bertahap, bukan langsung meluapkan semuanya.",I:"Ketegangan lebih mudah reda jika kamu menghadapinya bertahap, bukan menunggu sampai perasaan menumpuk."},
+  i:{E:["Ambil jeda sebelum bicara saat emosi tinggi.","Pilih satu isu untuk dibahas.","Dengarkan sampai lawan bicara selesai.","Sepakati satu langkah kecil bersama."],I:["Beri nama perasaanmu dengan jujur.","Tulis poin yang ingin disampaikan.","Sampaikan dalam waktu yang disepakati.","Sepakati satu langkah kecil bersama."]}},
+ {t:"Kebiasaan Sehat Saat Berbeda Pendapat",ic:"check",st:"checks",mix:4,d:"Perbedaan pendapat tidak harus merusak kedekatan.",
+  i:{E:"Beri giliran bicara yang adil.",I:"Bahas masalah selagi masih kecil.",S:"Gunakan contoh nyata, bukan tuduhan umum.",N:"Fokus pada satu topik dulu.",T:"Pisahkan masalah dari orangnya.",F:"Pisahkan kritik dari harga diri.",J:"Buka kemungkinan solusi lain.",P:"Kembali ke percakapan sesuai janji."}}
+]};
+PAGES[10] = {t:"Hubungan Romantis",ic:"heart",b:[
+ {t:"Yang Kamu Butuhkan",ic:"heart",st:"cards",mix:3,d:"Kamu cenderung membutuhkan hal-hal ini, dari masa kenalan hingga komitmen panjang.",
+  i:{E:"Kebersamaan dan kegiatan bersama.",I:"Waktu tenang tanpa dianggap menjauh.",S:"Bukti cinta dalam tindakan.",N:"Obrolan tentang mimpi dan masa depan.",T:"Kejujuran yang lugas.",F:"Kata-kata yang hangat.",J:"Kejelasan rencana dan komitmen.",P:"Ruang untuk spontanitas."}},
+ {t:"Di Setiap Tahap",ic:"map",st:"cards",dim:"TF",
+  d:{T:"Pola yang sama mungkin terlihat berbeda di setiap fase hubungan.",F:"Pola yang sama mungkin terlihat berbeda di setiap fase hubungan."},
+  i:{T:["Saat sendiri, kamu mungkin menunggu orang yang benar-benar sejalan.","Saat mulai dekat, kamu menilai lewat konsistensi, bukan janji.","Saat berpacaran, rencana yang jelas membuatmu merasa aman.","Saat menikah, pembagian peran yang adil menjaga kehangatan."],F:["Saat sendiri, kamu mungkin membayangkan hubungan yang ideal.","Saat mulai dekat, kamu cepat merasakan kecocokan nilai.","Saat berpacaran, kamu memberi perhatian yang dalam.","Saat menikah, kamu menjaga kehangatan rumah."]}},
+ {t:"Saat Ada Konflik",ic:"chat",st:"steps",dim:"TF",
+  d:{T:"Kamu mungkin mencari fakta dan solusi lebih dulu. Pasangan bisa membutuhkan validasi sebelum siap membahas langkah.",F:"Kamu mungkin mencari pemulihan perasaan lebih dulu. Sampaikan juga apa yang kamu butuhkan, bukan hanya menunggu dipahami."},
+  i:{T:["Tanyakan: ingin didengar atau dibantu mencari solusi?","Sebutkan masalah spesifik tanpa mengungkit kesalahan lama.","Ambil jeda dengan waktu kembali yang jelas.","Rangkum kesepakatan setelah emosi turun."],F:["Tenangkan diri sebelum bicara.","Sampaikan perasaan dengan kalimat 'aku'.","Dengarkan sudut pandang pasangan sampai selesai.","Sepakati satu perubahan kecil."]}},
+ {t:"Kebiasaan yang Menjaga",ic:"check",st:"checks",mix:4,d:"Kebiasaan kecil ini berlaku untuk hubungan baru maupun yang sudah lama.",
+  i:{E:"Sisihkan quality time tanpa gawai.",I:"Sampaikan kebutuhan sebelum menumpuk.",S:"Ingat detail kecil yang disukai pasangan.",N:"Rencanakan mimpi bersama.",T:"Ucapkan apresiasi secara langsung.",F:"Jaga ruang untuk dirimu sendiri.",J:"Bahas perubahan rencana sedini mungkin.",P:"Tepati janji kecil yang sudah dibuat."}}
+]};
+// ===== KONTEN BLOK PER HALAMAN (hal. 12–20) =====
+PAGES[12] = {t:"Pernikahan dan Komitmen",ic:"home",b:[
+ {t:"Dalam Pernikahan",ic:"home",st:"cards",mix:3,d:"Kamu cenderung menjaga komitmen lewat cara-cara ini.",
+  i:{E:"Mengajak pasangan beraktivitas bersama.",I:"Kesetiaan yang tenang dan konsisten.",S:"Siap membantu urusan rumah.",N:"Merancang masa depan bersama.",T:"Memecahkan masalah rumah tangga.",F:"Menjaga suasana hati keluarga.",J:"Mengatur keuangan dan jadwal.",P:"Memberi pasangan ruang untuk tumbuh."}},
+ {t:"Dengan Mertua dan Ipar",ic:"users",st:"cards",dim:"EI",
+  d:{E:"Kamu mungkin mudah akrab dengan keluarga pasangan, tetapi perlu menjaga batas agar tidak kelelahan.",I:"Kamu mungkin lebih nyaman membantu secara nyata daripada berbasa-basi lama dengan keluarga pasangan."},
+  i:{E:["Cepat mencairkan suasana.","Hadir di acara keluarga.","Menjaga energi agar tidak habis.","Tidak menanggung semua harapan sendirian."],I:["Membangun kedekatan lewat bantuan praktis.","Menghargai tradisi walau tidak banyak bicara.","Menjaga energi saat acara keluarga panjang.","Tidak menanggung semua harapan sendirian."]}},
+ {t:"Saat Ada Gesekan Keluarga",ic:"list",st:"steps",dim:"TF",
+  d:{T:"Gesekan keluarga lebih mudah diurai jika kamu dan pasangan menjadi satu tim sebelum bicara dengan keluarga besar.",F:"Gesekan keluarga lebih mudah diurai jika kamu dan pasangan menjadi satu tim, tanpa harus menyenangkan semua orang."},
+  i:{T:["Bicarakan dulu berdua dengan pasangan.","Pisahkan fakta dari perasaan yang terluka.","Sampaikan batasan dengan bahasa yang hangat.","Tentukan siapa yang menyampaikan pesan."],F:["Bicarakan dulu berdua dengan pasangan.","Akui perasaanmu tanpa menyalahkan.","Sampaikan batasan dengan jelas dan sopan.","Tentukan siapa yang menyampaikan pesan."]}},
+ {t:"Kebiasaan yang Menjaga",ic:"check",st:"checks",dim:"JP",
+  d:{J:"Kebiasaan kecil ini membantu pernikahan dan hubungan dengan keluarga besar tetap sehat.",P:"Kebiasaan kecil ini membantu pernikahan dan hubungan dengan keluarga besar tetap sehat."},
+  i:{J:["Jadwalkan waktu berdua secara rutin.","Tentukan batas kunjungan keluarga.","Ucapkan terima kasih kepada pasangan.","Longgarkan rencana saat pasangan butuh ruang."],P:["Jadwalkan waktu berdua secara rutin.","Sepakati pembagian tugas rumah.","Ucapkan terima kasih kepada pasangan.","Rayakan tradisi kecil milik keluarga kalian."]}}
+]};
+PAGES[13] = {t:"Keluarga",ic:"users",b:[
+ {t:"Peranmu di Keluarga",ic:"users",st:"cards",mix:3,d:"Mungkin kamu sering mengambil peran ini saat keluarga berkumpul atau menghadapi masalah.",
+  i:{E:"Penghidup suasana saat berkumpul.",I:"Pendengar yang tenang.",S:"Pengurus hal-hal praktis.",N:"Pemberi sudut pandang baru.",T:"Pemberi saran yang masuk akal.",F:"Penjaga kehangatan keluarga.",J:"Penyusun rencana keluarga.",P:"Penengah yang luwes."}},
+ {t:"Bersama Orang Tua",ic:"heart",st:"cards",dim:"TF",
+  d:{T:"Kamu cenderung menunjukkan sayang kepada orang tua lewat bantuan nyata dan solusi.",F:"Kamu cenderung menunjukkan sayang kepada orang tua lewat perhatian dan kehadiran."},
+  i:{T:["Membantu urusan penting orang tua.","Memberi kabar secara rutin.","Mendengarkan cerita mereka dengan sabar.","Menjelaskan pilihan hidup dengan tenang."],F:["Hadir saat mereka butuh teman bicara.","Mengingat hari penting mereka.","Menjaga perasaan mereka saat berbeda pendapat.","Tetap jujur tentang pilihan hidupmu."]}},
+ {t:"Pola Lama yang Bisa Diubah",ic:"refresh",st:"cards",mix:4,d:"Pola lama ini wajar, tetapi bisa pelan-pelan diganti dengan yang lebih sehat.",
+  i:{E:"Mengisi diam dengan terlalu banyak bicara.",I:"Menjaga jarak saat ada konflik.",S:"Bertahan pada cara lama demi aman.",N:"Lupa hal praktis yang dijanjikan.",T:"Memberi saran sebelum ditanya.",F:"Memikul masalah keluarga sendirian.",J:"Mengatur semua orang.",P:"Menghindari obrolan serius."}},
+ {t:"Kebiasaan yang Menghangatkan",ic:"check",st:"checks",dim:"EI",
+  d:{E:"Hubungan keluarga terasa lebih aman saat niat baik diwujudkan lewat kebiasaan sederhana.",I:"Hubungan keluarga terasa lebih aman saat niat baik diwujudkan lewat kebiasaan sederhana."},
+  i:{E:["Ajak keluarga makan bersama secara rutin.","Dengarkan tanpa menyela.","Bagi tugas keluarga dengan saudara.","Sisakan waktu untuk dirimu sendiri."],I:["Jadwalkan telepon rutin dengan orang tua.","Tanyakan perasaan sebelum memberi saran.","Bagi tugas keluarga dengan saudara.","Akui ketika kamu butuh waktu sendiri."]}}
+]};
+PAGES[14] = {t:"Parenting",ic:"sprout",b:[
+ {t:"Gaya Mengasuhmu",ic:"leaf",st:"cards",dim:"SN",
+  d:{S:"Kamu cenderung menjadi orang tua yang praktis dan konsisten, menyiapkan anak untuk kehidupan nyata.",N:"Kamu cenderung menjadi orang tua yang mendorong rasa ingin tahu dan mimpi anak."},
+  i:{S:["Mengajarkan keterampilan sehari-hari.","Menjaga rutinitas yang menenangkan.","Hadir dalam kebutuhan nyata anak."],N:["Menjawab pertanyaan anak dengan serius.","Mengajarkan nilai lewat cerita.","Menghargai keunikan setiap anak."]}},
+ {t:"Kekuatanmu sebagai Orang Tua",ic:"star",st:"cards",mix:4,d:"Kekuatanmu mungkin terlihat dari cara kamu membuat rumah terasa aman.",
+  i:{E:"Mengajak anak aktif dan bersosialisasi.",I:"Membangun obrolan yang dalam.",S:"Konsisten menepati janji.",N:"Membuka imajinasi anak.",T:"Adil dan tenang saat menegur.",F:"Peka pada perubahan suasana hati.",J:"Memberi struktur yang jelas.",P:"Sabar dan luwes di hari yang sulit."}},
+ {t:"Yang Perlu Diwaspadai",ic:"alert",st:"cards",mix:4,d:"Risiko mungkin muncul saat polamu terlalu dominan atau kamu lupa beristirahat.",
+  i:{E:"Jadwal anak terlalu padat.",I:"Kurang mengungkapkan sayang dengan kata.",S:"Terlalu protektif pada hal baru.",N:"Harapan yang terlalu tinggi.",T:"Lebih banyak koreksi daripada pujian.",F:"Sulit bersikap tegas saat perlu.",J:"Aturan yang terlalu kaku.",P:"Batasan yang berubah-ubah."}},
+ {t:"Kebiasaan yang Menguatkan",ic:"check",st:"checks",dim:"JP",
+  d:{J:"Kebiasaan kecil ini membantu kepedulianmu terasa aman bagi anak dan tetap sehat bagimu.",P:"Kebiasaan kecil ini membantu kepedulianmu terasa aman bagi anak dan tetap sehat bagimu."},
+  i:{J:["Buat tiga aturan rumah yang sederhana.","Sisakan waktu main tanpa agenda.","Bagi tugas mengasuh dengan pasangan.","Ambil jeda sebelum menegur."],P:["Buat tiga aturan rumah yang konsisten.","Siapkan rutinitas tidur yang tetap.","Bagi tugas mengasuh dengan pasangan.","Ambil jeda sebelum menegur."]}}
+]};
+PAGES[15] = {t:"Pertemanan",ic:"users",b:[
+ {t:"Gaya Berteman",ic:"users",st:"cards",dim:"SN",
+  d:{S:"Kamu cenderung membangun pertemanan lewat kegiatan bersama dan bantuan nyata.",N:"Kamu cenderung membangun pertemanan lewat rasa ingin tahu, ide, dan obrolan yang dalam."},
+  i:{S:["Setia hadir saat dibutuhkan.","Mengajak teman beraktivitas bersama.","Mengingat hal kecil tentang teman."],N:["Senang diskusi topik yang menarik.","Mengenalkan teman satu sama lain.","Setia pada teman yang sejalan nilainya."]}},
+ {t:"Energi Sosialmu",ic:"battery",st:"cards",dim:"EI",
+  d:{E:"Interaksi biasanya mengisi energimu, tetapi kamu tetap butuh jeda untuk mencerna banyak kesan.",I:"Interaksi bisa menyenangkan, tetapi energimu lebih cepat habis di keramaian."},
+  i:{E:["Acara ramai terasa menyenangkan.","Mudah memulai obrolan dengan orang baru.","Waktu sendiri membantu menata pikiran.","Obrolan dalam tetap penting."],I:["Pertemuan kecil yang akrab terasa mengisi.","Acara besar seru, tetapi melelahkan.","Waktu sendiri membantu memulihkan energi.","Obrolan dalam lebih berarti dari basa-basi."]}},
+ {t:"Batasan yang Sehat",ic:"shield",st:"cards",dim:"TF",
+  d:{T:"Batasan membantumu tetap jujur kepada teman tanpa melukai hubungan.",F:"Batasan membantumu tetap hangat kepada teman tanpa kehabisan energi untuk dirimu."},
+  i:{T:["Tidak harus selalu memberi solusi.","Menyampaikan kritik dengan lembut.","Memberi ruang saat teman butuh curhat.","Menjaga waktu untuk istirahat."],F:["Menolak ajakan tanpa merasa bersalah.","Tidak menjadi tempat curhat setiap saat.","Memilih teman yang juga memberi dukungan.","Menjaga waktu untuk istirahat."]}},
+ {t:"Cara Menjaga Kedekatan",ic:"check",st:"checks",dim:"JP",
+  d:{J:"Hubungan sosial terasa lebih hidup jika perhatianmu juga diberi ruang untuk spontan.",P:"Hubungan sosial terasa lebih hidup jika semangatmu diikuti perhatian yang konsisten."},
+  i:{J:["Kirim kabar singkat secara rutin.","Terima ajakan mendadak sesekali.","Ingat momen penting teman dekat.","Dengarkan sampai cerita selesai."],P:["Kirim kabar singkat secara rutin.","Tepati janji bertemu yang sudah dibuat.","Ingat momen penting teman dekat.","Dengarkan sampai cerita selesai."]}}
+]};
+PAGES[16] = {t:"Karier dan Pekerjaan",ic:"briefcase",b:[
+ {t:"Masalah yang Berarti",ic:"target",st:"list",dim:"SN",
+  d:{S:"Kamu cenderung menikmati masalah nyata yang hasilnya bisa dilihat dan diukur.",N:"Kamu cenderung menikmati masalah baru yang menuntut ide dan cara berpikir berbeda."},
+  i:{S:["Merapikan proses yang berantakan.","Menjaga kualitas layanan atau data.","Memperbaiki hal yang rusak atau macet."],N:["Merancang solusi untuk masalah yang belum terpecahkan.","Menghubungkan ide dari bidang berbeda.","Membayangkan produk atau cara kerja masa depan."]}},
+ {t:"Lingkungan Kerja",ic:"users",st:"list",mix:4,d:"Kamu cenderung bekerja baik di lingkungan dengan ciri-ciri ini.",
+  i:{E:"Tim yang kolaboratif dan aktif.",I:"Ada ruang fokus tanpa gangguan.",S:"Ekspektasi dan prosedur yang jelas.",N:"Ruang untuk inovasi dan eksperimen.",T:"Penilaian berdasarkan hasil dan logika.",F:"Budaya yang saling menghargai.",J:"Prioritas dan tenggat yang realistis.",P:"Fleksibilitas waktu dan cara kerja."}},
+ {t:"Langkah Sesuai Keadaanmu",ic:"chart",st:"list",dim:"JP",
+  d:{J:"Pilih langkah yang paling cocok dengan posisimu saat ini, lalu evaluasi hasilnya.",P:"Pilih langkah yang paling cocok dengan posisimu saat ini, lalu evaluasi hasilnya."},
+  i:{J:["Jika bekerja, ambil satu tugas terstruktur dan ukur rasa puasmu.","Jika punya usaha, tulis SOP untuk satu proses utama.","Jika mencari kerja, utamakan peran dengan ekspektasi jelas.","Jika masih belajar, coba magang dengan target nyata."],P:["Jika bekerja, minta satu proyek baru yang menantang.","Jika punya usaha, uji satu ide kecil bulan ini.","Jika mencari kerja, coba proyek lepas untuk mengenal bidang.","Jika masih belajar, ikuti beberapa kegiatan berbeda."]}},
+ {t:"Memilih Pekerjaan",ic:"doc",st:"checks",dim:"TF",
+  d:{T:"Saat menilai pilihan kerja, gunakan bukti, bukan hanya nama jabatan.",F:"Saat menilai pilihan kerja, cek apakah nilainya sejalan denganmu, lalu cek juga faktanya."},
+  i:{T:["Tulis tiga tugas utama dan tanyakan apakah kamu mau mengulanginya setiap minggu.","Minta contoh ekspektasi, tenggat, dan cara umpan balik diberikan.","Bandingkan gaji, jenjang, dan ruang belajar.","Uji pilihan lewat proyek kecil sebelum komitmen besar."],F:["Tanyakan apa dampak pekerjaan ini bagi orang lain.","Kenali budaya tim lewat obrolan dengan karyawan.","Cek apakah beban kerjanya realistis.","Uji pilihan lewat proyek kecil sebelum komitmen besar."]}}
+]};
+PAGES[17] = {t:"Bekerja Bersama Orang Lain",ic:"users",b:[
+ {t:"Kontribusimu di Tim",ic:"users",st:"list",mix:3,d:"Mungkin ini peran yang paling sering kamu berikan dalam tim.",
+  i:{E:"Menghidupkan diskusi.",I:"Memikirkan masalah secara mendalam.",S:"Memastikan detail tidak terlewat.",N:"Membawa ide dan arah baru.",T:"Menjaga keputusan tetap objektif.",F:"Menjaga semangat dan keharmonisan.",J:"Menjaga tenggat dan rencana.",P:"Cepat beradaptasi saat ada masalah."}},
+ {t:"Yang Kamu Butuhkan dari Tim",ic:"heart",st:"cards",mix:4,d:"Kamu cenderung bekerja paling baik saat tim memberi hal-hal ini.",
+  i:{E:"Ruang untuk berdiskusi.",I:"Waktu untuk berpikir sebelum menjawab.",S:"Instruksi yang konkret.",N:"Kebebasan mengusulkan ide.",T:"Diskusi yang jujur dan logis.",F:"Pengakuan atas kontribusi.",J:"Pembagian peran yang jelas.",P:"Fleksibilitas dalam cara kerja."}},
+ {t:"Pola Gesekan",ic:"zap",st:"cards",mix:4,d:"Gesekan mungkin muncul saat polamu bertemu pola yang berbeda di tim.",
+  i:{E:"Mendominasi rapat.",I:"Tidak menyampaikan keberatan.",S:"Menolak ide yang belum terbukti.",N:"Kurang sabar dengan detail.",T:"Kritik terasa terlalu tajam.",F:"Menahan kritik demi suasana.",J:"Tidak sabar dengan yang lambat.",P:"Telat mengabari perubahan."}},
+ {t:"Kebiasaan Tim",ic:"check",st:"checks",dim:"JP",
+  d:{J:"Kebiasaan sederhana ini membantu tim bekerja dengan adil tanpa membuatmu terlalu kaku.",P:"Kebiasaan sederhana ini membantu tim bekerja dengan adil tanpa membatasi kreativitasmu."},
+  i:{J:["Tulis keputusan rapat dalam tiga poin.","Tentukan siapa melakukan apa.","Biarkan orang lain menuntaskan dengan caranya.","Lakukan tindak lanjut di akhir minggu."],P:["Tulis keputusan rapat dalam tiga poin.","Kabari tim saat ada perubahan rencana.","Tetapkan satu tenggat yang kamu jaga.","Lakukan tindak lanjut di akhir minggu."]}}
+]};
+PAGES[18] = {t:"Leadership dan Pengaruh",ic:"flag",b:[
+ {t:"Gaya Pengaruhmu",ic:"compass",st:"list",dim:"EI",
+  d:{E:"Mungkin kamu memimpin dengan energi: hadir di depan, menggerakkan orang, dan cepat mengambil inisiatif.",I:"Mungkin kamu memimpin dengan contoh: tenang, memberi kepercayaan, dan berbicara saat perlu."},
+  i:{E:["Menggerakkan orang dengan semangat.","Berani tampil di depan.","Cepat membangun dukungan."],I:["Tenang saat keadaan genting.","Mengajarkan lewat contoh.","Memberi kepercayaan, bukan mengawasi."]}},
+ {t:"Cara Menetapkan Arah",ic:"map",st:"steps",dim:"SN",
+  d:{S:"Mungkin kamu menetapkan arah dengan melihat masalah nyata lebih dulu.",N:"Mungkin kamu menetapkan arah dengan melukiskan visi lebih dulu."},
+  i:{S:["Jelaskan masalah dan tujuannya.","Tanyakan masukan dari tim.","Tetapkan peran dan tenggat.","Tinjau kemajuan secara rutin."],N:["Gambarkan tujuan akhir yang ingin dicapai.","Terjemahkan visi menjadi tiga prioritas.","Tetapkan peran dan tenggat.","Tinjau kemajuan secara rutin."]}},
+ {t:"Risiko Kepemimpinan",ic:"alert",st:"cards",mix:4,d:"Risiko mungkin muncul saat gaya memimpinmu dipakai berlebihan.",
+  i:{E:"Terlalu banyak bicara, kurang mendengar.",I:"Jarang menjelaskan alasan keputusan.",S:"Terlalu fokus pada urusan harian.",N:"Visi tidak diturunkan ke langkah nyata.",T:"Kurang memberi pujian.",F:"Sulit menegur anggota tim.",J:"Mengontrol terlalu ketat.",P:"Menunda keputusan penting."}},
+ {t:"Latihan Memimpin",ic:"check",st:"checks",dim:"TF",
+  d:{T:"Pengaruhmu tumbuh saat ketegasan ditemani apresiasi.",F:"Pengaruhmu tumbuh saat kehangatan ditemani ketegasan."},
+  i:{T:["Pilih satu prioritas tim per bulan.","Sampaikan umpan balik dengan hangat.","Akui kontribusi setiap anggota.","Tanyakan kabar, bukan hanya progres."],F:["Pilih satu prioritas tim per bulan.","Sampaikan teguran dengan jelas dan spesifik.","Akui kontribusi setiap anggota.","Putuskan meski tidak semua orang senang."]}}
+]};
+PAGES[19] = {t:"Uang dan Keputusan",ic:"coin",b:[
+ {t:"Cara Kamu Memandang Uang",ic:"coin",st:"cards",dim:"SN",
+  d:{S:"Kamu cenderung melihat uang sebagai rasa aman untuk kebutuhan nyata hari ini dan nanti.",N:"Kamu cenderung melihat uang sebagai alat untuk mencapai tujuan dan kebebasan jangka panjang."},
+  i:{S:["Mencatat pengeluaran dengan rapi.","Menabung untuk kebutuhan yang jelas.","Membeli yang terbukti awet."],N:["Menabung untuk tujuan besar.","Tertarik belajar cara uang tumbuh.","Jarang membeli karena ikut tren."]}},
+ {t:"Cara Kamu Mengambil Keputusan",ic:"scale",st:"cards",dim:"TF",
+  d:{T:"Saat memutuskan, kamu mungkin mengumpulkan data dan menimbang untung rugi sebelum memilih.",F:"Saat memutuskan, kamu mungkin menimbang apakah pilihan ini sejalan dengan nilai dan orang terdekat."},
+  i:{T:["Membandingkan beberapa pilihan.","Memikirkan dampak jangka panjang.","Mencari sumber yang terpercaya.","Memutuskan sendiri tanpa banyak bertanya."],F:["Mempertimbangkan kebutuhan keluarga.","Memilih yang terasa benar.","Mendukung usaha orang yang dikenal.","Sulit menolak permintaan pinjaman."]}},
+ {t:"Yang Perlu Diwaspadai",ic:"alert",st:"cards",mix:4,d:"Risiko mungkin muncul saat polamu terlalu dominan dalam urusan uang.",
+  i:{E:"Belanja karena ajakan teman.",I:"Jarang berdiskusi dengan pasangan.",S:"Terlalu takut mengambil peluang.",N:"Tergoda ide investasi yang belum teruji.",T:"Lupa memberi hadiah untuk diri sendiri.",F:"Memberi lebih dari kemampuan.",J:"Terlalu lama menimbang pilihan.",P:"Belanja impulsif."}},
+ {t:"Langkah Memutuskan dengan Tenang",ic:"gear",st:"steps",dim:"JP",
+  d:{J:"Langkah sederhana ini membantu keputusan uangmu tetap sejalan dengan tujuan dan kebutuhan orang terdekat.",P:"Langkah sederhana ini membantu keputusan uangmu tetap sejalan dengan tujuan tanpa terasa mengekang."},
+  i:{J:["Tulis tujuan keuangan yang jelas.","Tetapkan batas waktu untuk memutuskan.","Diskusikan keputusan besar dengan orang dekat.","Sisihkan dana untuk hal yang kamu nikmati."],P:["Tunggu 48 jam sebelum pembelian besar.","Buat satu anggaran sederhana.","Diskusikan keputusan besar dengan orang dekat.","Otomatiskan tabungan di awal bulan."]}}
+]};
+PAGES[20] = {t:"Pendidikan dan Cara Belajar",ic:"book",b:[
+ {t:"Cara Kamu Belajar",ic:"bulb",st:"cards",dim:"SN",
+  d:{S:"Sering kali kamu belajar lewat contoh nyata, praktik, dan langkah yang berurutan.",N:"Sering kali kamu belajar lewat makna, gambaran besar, dan hubungan antar konsep."},
+  i:{S:["Belajar dari contoh dan praktik.","Mengikuti langkah demi langkah.","Mengulang sampai benar-benar hafal."],N:["Belajar dari konsep dan teori.","Menghubungkan materi dengan ide lain.","Menulis ulang materi dengan kata sendiri."]}},
+ {t:"Metode yang Efektif",ic:"gear",st:"cards",dim:"EI",
+  d:{E:"Kamu cenderung menyerap materi saat bisa mendiskusikan dan menjelaskannya ke orang lain.",I:"Kamu cenderung menyerap materi saat ada suasana tenang dan ruang untuk berpikir."},
+  i:{E:["Belajar kelompok.","Menjelaskan materi ke teman.","Kelas interaktif atau diskusi.","Sesi belajar singkat yang bervariasi."],I:["Catatan rapi dengan peta pikiran.","Membaca di tempat yang tenang.","Belajar bersama satu teman tepercaya.","Jadwal belajar yang tetap."]}},
+ {t:"Risiko Fokus",ic:"alert",st:"cards",mix:4,d:"Fokusmu cenderung terganggu dalam situasi seperti ini.",
+  i:{E:"Mudah teralihkan oleh obrolan.",I:"Ragu bertanya saat bingung.",S:"Bosan dengan teori tanpa contoh.",N:"Kehilangan minat pada materi hafalan.",T:"Meremehkan materi yang terasa tidak logis.",F:"Belajar sambil memikirkan urusan orang lain.",J:"Terlalu lama di satu bagian.",P:"Menunda sampai mendekati ujian."}},
+ {t:"Sistem Belajar",ic:"list",st:"steps",dim:"JP",
+  d:{J:"Sistem yang sederhana lebih mudah dipertahankan, baik di kelas, kursus, maupun belajar mandiri.",P:"Sistem yang ringan dan bervariasi lebih mudah dipertahankan, baik di kelas, kursus, maupun belajar mandiri."},
+  i:{J:["Pilih satu topik untuk satu bulan.","Belajar 25 menit, lalu istirahat.","Rangkum dengan kata-katamu sendiri.","Bagikan hasilnya kepada teman."],P:["Pilih topik yang paling membuatmu penasaran.","Ganti format: video, buku, praktik.","Pasang target kecil setiap minggu.","Bagikan hasilnya kepada teman."]}}
+]};
+// ===== KONTEN HAL. 21–22, HURUF, MATRIKS =====
+PAGES[21] = {t:"Bertumbuh Tanpa Kehilangan Diri",ic:"sprout",b:[
+ {t:"Yang Tetap Dijaga",ic:"leaf",st:"list",mix:4,d:"Kualitas ini adalah bagian dari dirimu. Jaga, lalu pakai dengan arah yang jelas.",
+  i:{E:"Keberanian membuka percakapan.",I:"Kedalaman berpikir dan merasa.",S:"Ketelitian dan kepraktisan.",N:"Rasa ingin tahu dan imajinasi.",T:"Kejujuran dan objektivitas.",F:"Kehangatan dan kepekaan.",J:"Tanggung jawab dan keteraturan.",P:"Keluwesan dan spontanitas."}},
+ {t:"Perluas Pilihan",ic:"mountain",st:"steps",mix:4,d:"Perluas kebiasaanmu secara bertahap, bukan dengan memaksa diri berubah total.",
+  i:{E:"Coba satu jam refleksi sendiri setiap minggu.",I:"Mulai satu percakapan baru setiap minggu.",S:"Bayangkan tiga kemungkinan sebelum memilih.",N:"Selesaikan satu proyek sebelum memulai yang baru.",T:"Tanyakan perasaan sebelum memberi solusi.",F:"Ambil satu keputusan berdasarkan data saja.",J:"Biarkan satu hari berjalan tanpa jadwal.",P:"Buat rencana mingguan yang sederhana."}},
+ {t:"Yang Bisa Dilepas",ic:"trash",st:"steps",mix:4,d:"Mungkin ada hal yang menguras energi tanpa memberi makna. Lepaskan pelan-pelan.",
+  i:{E:"Keharusan untuk selalu sibuk.",I:"Kebiasaan memendam sampai menumpuk.",S:"Ketakutan pada cara yang belum terbukti.",N:"Keinginan mengejar setiap ide.",T:"Tuntutan untuk selalu benar.",F:"Keinginan menyenangkan semua orang.",J:"Tuntutan agar semua berjalan sesuai rencana.",P:"Rasa bersalah karena belum selesai."}},
+ {t:"Kompas Pribadi",ic:"compass",st:"quote",dim:"TF",
+  d:{T:"Kompas pribadimu bisa sederhana: apakah pilihan ini masuk akal, adil, dan tetap manusiawi?",F:"Kompas pribadimu bisa sederhana: apakah pilihan ini sesuai nilai, cukup jelas untuk dijalankan, dan tetap memberi ruang bagi dirimu?"},
+  i:{T:["Pilih yang masuk akal, lalu sampaikan dengan hangat."],F:["Pilih yang bermakna, lalu tuntaskan dengan sabar."]}}
+]};
+PAGES[22] = {t:"Rencana 30 Hari",ic:"calendar",b:[
+ {t:"Minggu 1: Amati",ic:"eye",st:"steps",mix:4,d:"Minggu pertama berfokus pada pengamatan tanpa buru-buru memperbaiki semuanya.",
+  i:{E:"Catat kapan kamu bicara sebelum mendengar.",I:"Catat momen ketika kamu memendam pendapat.",S:"Catat satu situasi yang membuatmu sulit menerima ide baru.",N:"Catat detail yang sering terlewat.",T:"Perhatikan reaksi orang setelah kamu memberi kritik.",F:"Perhatikan kapan kamu berkata ya padahal ingin menolak.",J:"Perhatikan tanda tubuh saat rencana berubah.",P:"Perhatikan tugas apa yang paling sering kamu tunda."}},
+ {t:"Minggu 2: Latih",ic:"pencil",st:"steps",mix:4,d:"Minggu kedua dipakai untuk melatih kebiasaan kecil yang langsung bisa dipakai.",
+  i:{E:"Hitung sampai tiga sebelum menanggapi.",I:"Sampaikan satu pendapat di setiap rapat.",S:"Coba satu cara baru untuk tugas rutin.",N:"Gunakan daftar periksa sebelum mengirim pekerjaan.",T:"Awali umpan balik dengan apresiasi.",F:"Tunda jawaban ya selama satu hari.",J:"Sisakan ruang kosong dalam satu rencana harian.",P:"Selesaikan satu tugas kecil setiap pagi."}},
+ {t:"Minggu 3: Perluas",ic:"users",st:"steps",mix:4,d:"Minggu ketiga memberi tantangan yang sedikit lebih besar. Minta umpan balik tanpa menuntut diri langsung mahir.",
+  i:{E:"Habiskan satu malam untuk refleksi sendiri.",I:"Ajak satu orang baru mengobrol.",S:"Ikuti diskusi tentang ide yang belum pernah dicoba.",N:"Tuntaskan satu proyek kecil sampai selesai.",T:"Tanyakan kebutuhan orang sebelum memberi solusi.",F:"Sampaikan satu batasan dengan jelas.",J:"Delegasikan satu tugas dan terima hasil yang cukup baik.",P:"Buat dan jalankan rencana untuk satu minggu."}},
+ {t:"Minggu 4: Gabungkan",ic:"gear",st:"steps",fixed:["Pilih dua praktik yang paling mudah dipertahankan.","Tinjau energimu setiap minggu.","Sesuaikan jika ternyata terlalu kaku atau terlalu longgar.","Rayakan kemajuan sekecil apa pun."],d:"Minggu keempat dipakai untuk menggabungkan kebiasaan yang paling membantu."},
+ {t:"Tinjauan 30 Hari",ic:"chart",st:"checks",mix:4,d:"Tujuannya bukan memberi nilai pada dirimu, tetapi menemukan kebiasaan yang layak diteruskan.",
+  i:{E:"Apakah kamu lebih sering mendengar sampai selesai?",I:"Apakah suaramu lebih sering terdengar?",S:"Apakah kamu lebih terbuka pada cara baru?",N:"Apakah lebih banyak ide yang tuntas?",T:"Apakah orang lebih nyaman menerima masukanmu?",F:"Apakah kamu lebih berani berkata tidak?",J:"Apakah kamu lebih tenang saat rencana berubah?",P:"Apakah tugas penting selesai lebih awal?"}}
+]};
+
+const LETTER = {
+ E:"cenderung mendapat energi dari interaksi dan aktivitas.",
+ I:"cenderung mendapat energi dari waktu tenang dan refleksi.",
+ S:"cenderung memperhatikan fakta, detail, dan pengalaman nyata.",
+ N:"cenderung menangkap pola, makna, dan kemungkinan.",
+ T:"cenderung menimbang logika dan keadilan saat memutuskan.",
+ F:"cenderung menimbang nilai dan dampak pada orang.",
+ J:"cenderung nyaman dengan rencana dan keputusan yang jelas.",
+ P:"cenderung nyaman dengan pilihan yang tetap terbuka."
+};
+const POLE = {E:"Ekstraversi",I:"Introversi",S:"Sensing",N:"Intuisi",T:"Thinking",F:"Feeling",J:"Judging",P:"Perceiving"};
+const LEARN = {E:"energi dan keberanian mereka bersosialisasi",I:"ketenangan dan kedalaman mereka",S:"perhatian mereka pada detail",N:"cara mereka melihat kemungkinan",T:"ketegasan dan logika mereka",F:"kehangatan dan kepekaan mereka",J:"keteraturan dan ketuntasan mereka",P:"keluwesan dan spontanitas mereka"};
+// ===== MESIN LAPORAN 22 HALAMAN =====
+const ICON = {
+ brain:'<path d="M9 3a3 3 0 0 0-3 3v.2A3 3 0 0 0 4 9a3 3 0 0 0 .8 2A3 3 0 0 0 4 13a3 3 0 0 0 2 2.8V16a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Z"/><path d="M15 3a3 3 0 0 1 3 3v.2A3 3 0 0 1 20 9a3 3 0 0 1-.8 2A3 3 0 0 1 20 13a3 3 0 0 1-2 2.8V16a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3"/>',
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+ nodes:'<circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M12 7.2v9.6M7.2 12h9.6"/>',
+ scale:'<path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0Z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0Z"/>',
+ gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/>',
+ alert:'<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h0"/>',
+ star:'<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/>',
+ leaf:'<path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-10 16"/><path d="M4 21c3-6 7-9 11-11"/>',
+ sprout:'<path d="M12 21v-9"/><path d="M12 12c0-4-3-6-7-6 0 4 3 6 7 6Z"/><path d="M12 10c0-4 3-7 7-7 0 4-3 7-7 7Z"/>',
+ eye:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+ heart:'<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
+ zap:'<path d="M13 2 3 14h9l-1 8 10-12h-9Z"/>',
+ refresh:'<path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/>',
+ chat:'<path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12Z"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+ moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
+ battery:'<rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 10v4M10 10v4M14 10v4"/>',
+ "battery-low":'<rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 10v4"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ check:'<path d="M20 6 9 17l-5-5"/>',
+ handshake:'<path d="m11 17 2 2a1 1 0 0 0 1.4 0l5.3-5.3a2 2 0 0 0 0-2.8L15 6.2a2 2 0 0 0-2.8 0L10 8.4"/><path d="m3 11 4-4 3 3-4 4Z"/><path d="m7 14 3 3"/><path d="m14 7 2.5 2.5"/>',
+ list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h0M3 12h0M3 18h0"/>',
+ map:'<path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2Z"/><path d="M9 4v14M15 6v14"/>',
+ home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14a5 5 0 0 1 5 5"/>',
+ shield:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/>',
+ briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+ chart:'<path d="M4 20V14M10 20V8M16 20v-9M22 20H2"/>',
+ doc:'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h6"/>',
+ flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+ compass:'<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/>',
+ coin:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+ book:'<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4Z"/><path d="M20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7Z"/>',
+ bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z"/>',
+ mountain:'<path d="m3 20 6-10 4 6 2-3 6 7Z"/><path d="M9 10V4l4 2-4 2"/>',
+ trash:'<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ pencil:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/>',
+ grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+ user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+ copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>'
+};
+const ic = (n,c="") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]||ICON.star}</svg>`;
+const POLE_IC = {E:"users",I:"moon",S:"search",N:"bulb",T:"scale",F:"heart",J:"calendar",P:"compass"};
+const TOC = ["Tipe dan ringkasan utamamu","Teori di balik laporan ini","Sekilas tentang kamu","Cara pikiranmu bekerja","Kekuatan dan titik butamu","Emosi, stres, dan pemulihan","Energi dan keseharian","Cara berkomunikasi","Menghadapi konflik","Hubungan romantis","Matriks kecocokan","Pernikahan dan komitmen","Keluarga","Parenting","Pertemanan","Karier dan pekerjaan","Bekerja bersama orang lain","Leadership dan pengaruh","Uang dan keputusan","Pendidikan dan cara belajar","Bertumbuh tanpa kehilangan diri","Rencana 30 hari"];
+const TOC_IC = ["user","book","eye","brain","star","heart","sun","chat","handshake","heart","grid","home","users","sprout","users","briefcase","users","flag","coin","book","sprout","calendar"];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+
+let R = null;
+function buildR(p, name){
+  const pole = {EI:p.E>=50?"E":"I", SN:p.O>=50?"N":"S", TF:p.A>=50?"F":"T", JP:p.C>=50?"J":"P", AT:p.N>=50?"T":"A"};
+  const raw = {EI:p.E, SN:p.O, TF:p.A, JP:p.C};
+  const order = ["EI","SN","TF","JP"].sort((a,b)=>Math.abs(raw[b]-50)-Math.abs(raw[a]-50));
+  const code = pole.EI+pole.SN+pole.TF+pole.JP;
+  const grp = pole.SN==="N" ? "N"+pole.TF : "S"+pole.JP;
+  return {p, name:(name||"").trim(), pole, raw, order, code, id:pole.AT, grp, G:GRP[grp], T:T16[code], cur:1};
+}
+function pickBlock(b){
+  if(b.fixed) return {d:b.d, items:b.fixed.map(t=>({t,ic:b.ic}))};
+  if(b.dim){ const k = R.pole[b.dim]; return {d:b.d[k], items:b.i[k].map((t,j)=>({t,ic:[b.ic,"leaf","star","check"][j%4]}))}; }
+  return {d:b.d, items:R.order.slice(0,b.mix).map(dm=>{ const k=R.pole[dm]; return {t:b.i[k], ic:POLE_IC[k]}; })};
+}
+function blockHTML(b){
+  const {d, items} = pickBlock(b);
+  let body = "";
+  if(b.st==="cards") body = `<div class="tiles n${items.length}">${items.map(x=>`<div class="tile"><span class="tic">${ic(x.ic)}</span><span>${esc(x.t)}</span></div>`).join("")}</div>`;
+  else if(b.st==="steps") body = `<ol class="steps">${items.map((x,j)=>`<li><b>${j+1}</b><span>${esc(x.t)}</span></li>`).join("")}</ol>`;
+  else if(b.st==="checks") body = `<ul class="checks">${items.map(x=>`<li>${ic("check")}<span>${esc(x.t)}</span></li>`).join("")}</ul>`;
+  else if(b.st==="quote") body = `<div class="quotes">${items.map(x=>`<div class="q">${ic("chat")}<span>“${esc(x.t)}”</span></div>`).join("")}</div>`;
+  else body = `<ul class="rows">${items.map(x=>`<li><span class="tic">${ic(x.ic)}</span><span>${esc(x.t)}</span></li>`).join("")}</ul>`;
+  return `<section class="blk"><div class="blk-h"><span class="bic">${ic(b.ic)}</span><div><h3>${esc(b.t)}</h3><p>${esc(d)}</p></div></div>${body}</section>`;
+}
+function hero(icon){
+  const c = R.G.color, s = R.G.soft;
+  return `<svg class="hero" viewBox="0 0 200 160" aria-hidden="true">
+    <circle cx="112" cy="80" r="66" fill="${s}"/>
+    <circle cx="160" cy="34" r="12" fill="${c}" opacity=".18"/>
+    <circle cx="44" cy="128" r="8" fill="${c}" opacity=".22"/>
+    <path d="M30 120c10-30 34-44 58-44-6 22-26 40-58 44Z" fill="${c}" opacity=".25"/>
+    <path d="M176 128c-6-24-24-36-44-36 4 18 20 33 44 36Z" fill="${c}" opacity=".18"/>
+    <g transform="translate(76 44) scale(3)" fill="none" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICON[icon]||ICON.star}</g>
+  </svg>`;
+}
+function head(n, title, intro, opts={}){
+  return `<div class="pg-top"><span class="brand">Analisis Kepribadian</span><span class="pgno">${pad(n)} / 22</span></div>
+  <header class="pg-head"><div class="ph-txt"><i class="accent"></i>
+    ${opts.typeFirst?`<div class="tchip">Tipe: <b>${R.code}</b></div>`:""}
+    <h2>${esc(title)}</h2>${intro?`<p class="lead">${esc(intro)}</p>`:""}
+    ${opts.typeFirst||opts.noType?"":`<div class="tchip">Tipe: <b>${R.code}</b></div>`}
+  </div>${hero(opts.icon||TOC_IC[n-1])}</header>`;
+}
+function foot(){ return `<footer class="pg-foot"><span>Laporan Kepribadian${R.name?" · "+esc(R.name):""} · ${R.code}-${R.id}</span><span>Kenali polamu. Tumbuh dengan caramu.</span></footer>`; }
+
+// ---------- halaman khusus ----------
+function dimRows(){
+  const rows = [["EI","E","I","Ekstraversi","Introversi","users"],["SN","S","N","Sensing","Intuisi","search"],["TF","T","F","Thinking","Feeling","scale"],["JP","P","J","Perceiving","Judging","compass"]];
+  const val = {EI:R.p.E, SN:R.p.O, TF:R.p.A, JP:R.p.C};
+  const leftPct = {EI:val.EI, SN:100-val.SN, TF:100-val.TF, JP:100-val.JP};
+  return rows.map(([dm,l,r,ln,rn,icn])=>{
+    const lp = leftPct[dm], rp = 100-lp, onL = lp>=50;
+    const w = Math.abs(lp-50);
+    return `<div class="drow"><span class="bic sm">${ic(icn)}</span>
+      <div class="dside ${onL?"on":""}"><small>${ln}</small><b>${lp}%</b></div>
+      <div class="dbar2"><i style="${onL?`right:50%;width:${w}%`:`left:50%;width:${w}%`}"></i></div>
+      <div class="dside r ${onL?"":"on"}"><small>${rn}</small><b>${rp}%</b></div></div>`;
+  }).join("") + (()=>{const ap = 100-R.p.N, onA = ap>=50, w=Math.abs(ap-50); return `<div class="drow"><span class="bic sm">${ic("shield")}</span>
+      <div class="dside ${onA?"on":""}"><small>Assertive</small><b>${ap}%</b></div>
+      <div class="dbar2"><i style="${onA?`right:50%;width:${w}%`:`left:50%;width:${w}%`}"></i></div>
+      <div class="dside r ${onA?"":"on"}"><small>Turbulent</small><b>${100-ap}%</b></div></div>`;})();
+}
+function page1(){
+  const T = R.T;
+  return `<div class="pg-top"><span class="brand">Analisis Kepribadian</span><span class="pgno">01 / 22</span></div>
+  <header class="cover"><div class="ph-txt">
+    ${R.name?`<div class="cv-name">${esc(R.name)}</div>`:""}
+    <div class="cv-code">${R.code}<small>-${R.id}</small></div>
+    <h2 class="cv-sub">Laporan Kepribadianmu</h2>
+    <div class="cv-chips"><span class="chip solid">${esc(T.n)}</span><span class="chip">${R.G.name} · ${R.grp}</span></div>
+    <p class="lead">Laporan ini membantumu melihat cara kamu bekerja, berhubungan, mengambil keputusan, dan bertumbuh. Isinya bukan diagnosis, melainkan bahan refleksi yang bisa kamu uji dalam hidup sehari-hari.</p>
+  </div>${hero("user")}</header>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("star")}</span><div><h3>Kekuatan Utama</h3><p>${esc(T.core)}</p></div></div>
+    <ul class="rows">${T.s.map((s,j)=>`<li><span class="tic">${ic(["compass","chart","star"][j])}</span><span>${esc(s)}</span></li>`).join("")}</ul></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("chart")}</span><div><h3>Kamu dalam 4 Dimensi</h3><p>Profil preferensimu pada empat sumbu, ditambah cara kamu merespons stres.</p></div></div>
+    <div class="dims2">${dimRows()}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("grid")}</span><div><h3>Isi Laporanmu</h3><p>Jelajahi dalam urutan apa pun yang kamu suka. Ketuk untuk membuka halaman.</p></div></div>
+    <div class="tocg">${TOC.slice(1).map((t,j)=>`<button class="tocb" data-go="${j+2}"><span class="tic">${ic(TOC_IC[j+1])}</span><span><small>${pad(j+2)}</small>${esc(t)}</span></button>`).join("")}</div></section>`+foot();
+}
+function page2(){
+  const card = (icn,t) => `<div class="tile"><span class="tic">${ic(icn)}</span><span>${t}</span></div>`;
+  return head(2,"Teori di Balik Laporan Ini","Laporan ini memakai kerangka 16 tipe kepribadian yang berakar dari pemikiran Carl Jung, lalu disusun menjadi empat pasang preferensi. Tujuannya membantu kamu mengenali pola, bukan memberi label.",{noType:true})+
+  `<section class="blk"><div class="blk-h"><span class="bic">${ic("book")}</span><div><h3>Dari Mana Asalnya</h3><p>Psikolog Carl Jung menulis tentang perbedaan cara orang mengarahkan energi dan mengambil keputusan.</p></div></div>
+   <div class="tiles n3">${card("book","Carl Jung menulis <i>Psychological Types</i> pada 1921.")}${card("doc","Katharine Briggs dan Isabel Myers menyusunnya menjadi empat pasang preferensi.")}${card("users","Setiap orang memakai kedua sisi, dengan satu sisi terasa lebih nyaman.")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("nodes")}</span><div><h3>Empat Pasang Preferensi</h3><p>Setiap pasang menggambarkan arah yang biasanya terasa lebih alami bagimu.</p></div></div>
+   <div class="tiles n4">${card("zap","<b>E atau I</b><br>dari mana kamu mengisi energi.")}${card("search","<b>S atau N</b><br>informasi apa yang pertama kamu perhatikan.")}${card("heart","<b>T atau F</b><br>apa yang paling kamu timbang saat memutuskan.")}${card("calendar","<b>J atau P</b><br>bagaimana kamu mengatur waktu dan rencana.")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("chart")}</span><div><h3>Bagaimana Hasilmu Dihitung</h3><p>Jawabanmu diukur dengan model Big Five (IPIP-50), model yang paling banyak dipakai dalam riset psikologi, lalu diterjemahkan ke tipe memakai korelasi yang sudah diteliti (McCrae &amp; Costa, 1989).</p></div></div>
+   <div class="tiles n3">${card("chart","<b>Bar panjang:</b> kecenderunganmu terlihat jelas.")}${card("scale","<b>Bar pendek:</b> kamu cukup seimbang di dua sisi.")}${card("refresh","Kedua sisi tetap bisa kamu latih dan pakai.")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("pencil")}</span><div><h3>Cara Memakai Laporan Ini</h3><p>Baca setiap halaman sebagai cermin. Ambil bagian yang terasa tepat, uji dalam keseharian, dan abaikan yang tidak cocok.</p></div></div>
+   <div class="tiles n4">${card("book","Baca halaman dalam urutan apa pun.")}${card("pencil","Tandai kalimat yang paling terasa benar.")}${card("chat","Diskusikan dengan orang yang kamu percaya.")}${card("refresh","Ulangi tes setelah beberapa bulan.")}</div></section>
+  <p class="fine">Hasil ini adalah estimasi berbasis Big Five, bukan tes MBTI® resmi, dan bukan diagnosis psikologis. Tidak berafiliasi dengan pemilik merek MBTI® atau Myers-Briggs®.</p>`+foot();
+}
+function page3(){
+  const T = R.T, L = R.code.split("");
+  const strongWeak = R.order.map(dm=>`${R.pole[dm]} ${Math.round(Math.abs(R.raw[dm]-50)*2)}%`).join(" · ");
+  return head(3,"Sekilas Tentang Kamu","Gambaran ini membantumu melihat cara kamu mengisi energi, menangkap informasi, memutuskan, dan mengatur waktu tanpa mengurungmu dalam satu label.")+
+  `<section class="blk"><div class="blk-h"><span class="bic">${ic("leaf")}</span><div><h3>Inti Tipe ${R.code}: ${esc(T.n)}</h3><p>${esc(T.core)}</p></div></div>
+    <div class="tiles n3">${T.s.map((s,j)=>`<div class="tile"><span class="tic">${ic(["sprout","bulb","users"][j])}</span><span>${esc(s)}</span></div>`).join("")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("nodes")}</span><div><h3>Empat Huruf ${R.code}</h3><p>Setiap huruf menggambarkan arah yang biasanya terasa paling alami bagimu. Urutan kekuatannya: ${strongWeak}.</p></div></div>
+    <div class="letters">${L.map(l=>`<div class="letter"><span class="lc">${l}</span><span><b>${POLE[l]}</b> — kamu ${LETTER[l]}</span></div>`).join("")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("scale")}</span><div><h3>Titik Tengah yang Dibutuhkan</h3><p>Saat satu pola terlalu dominan, kamu mungkin melewatkan hal kecil yang sebenarnya menentukan hasil.</p></div></div>
+    <div class="tiles n3">${T.mid.map((s,j)=>`<div class="tile"><span class="tic">${ic(["leaf","chart","map"][j])}</span><span>${esc(s)}</span></div>`).join("")}</div></section>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("chart")}</span><div><h3>Skor Big Five-mu</h3><p>Dasar perhitungan tipemu. Skor dihitung dari skala jawabanmu (0–100%), bukan persentil dibanding populasi.</p></div></div>
+    <div class="bf">${ORDER.map(t=>{const X=TRAITS[t],l=level(R.p[t]);return `<div class="bfr"><div class="bfh"><span>${X.name}</span><b>${LVL[l]} · ${R.p[t]}%</b></div><div class="bfb"><i style="width:${Math.max(R.p[t],2)}%;background:${X.color}"></i></div></div>`;}).join("")}</div></section>`+foot();
+}
+function page11(){
+  const all = Object.keys(T16), me = R.code;
+  const cat = t => { if(t===me) return "me"; const sn=t[1]===me[1], tf=t[2]===me[2]; return sn&&tf?"g":(sn||tf?"b":"r"); };
+  const diffs = t => t.split("").filter((c,i)=>c!==me[i]);
+  const line = (t,k) => { const d = diffs(t).map(c=>LEARN[c]); const dl = d.length? d.slice(0,2).join(" dan ") : "";
+    return k==="g" ? `Kalian memandang dunia dengan cara mirip${dl?`; kamu bisa belajar dari ${dl}`:""}.` :
+           k==="b" ? `Kamu mungkin terbantu oleh ${dl}.` : `Kamu mungkin perlu menghargai ${dl}.`; };
+  const order4 = ["INTJ","INTP","ENTJ","ENTP","INFJ","INFP","ENFJ","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ISFP","ESTP","ESFP"];
+  const grid = order4.map(t=>{const k=cat(t);return `<div class="mx ${k}">${ic("user")}<b>${t}</b>${k==="me"?"<small>KAMU</small>":""}</div>`;}).join("");
+  const col = (k,title,desc) => { const ts = all.filter(t=>cat(t)===k); return `<div class="mcol ${k}"><h4>${title}</h4><p>${desc}</p>${ts.map(t=>`<div class="mi"><b>${t}</b><span>${line(t,k)}</span></div>`).join("")}</div>`; };
+  return head(11,"Matriks Kecocokan","Kecocokan di sini bukan ramalan atau peringkat. Ini peta pola interaksi: kapan gaya tertentu terasa lancar dan kapan perlu penyesuaian. Hubungan apa pun bisa berhasil.",{typeFirst:true})+
+  `<section class="blk"><div class="mxwrap"><div class="mxg">${grid}</div>
+    <div class="legend"><span><i class="g"></i>Alur Alami</span><span><i class="b"></i>Potensi Seimbang</span><span><i class="r"></i>Tantangan Bertumbuh</span></div></div></section>
+  <div class="mcols">${col("g","Alur Alami","Cara kalian menangkap informasi dan menimbang keputusan cukup mirip.")}${col("b","Potensi Seimbang","Pola yang berbeda tetapi saling melengkapi.")}${col("r","Tantangan Bertumbuh","Cara kalian melihat dunia dan memutuskan sangat berbeda.")}</div>
+  <section class="blk"><div class="blk-h"><span class="bic">${ic("handshake")}</span><div><h3>Membangun Kerja Sama</h3><p>Perbedaan lebih berguna jika diterjemahkan menjadi kebiasaan kecil. Jangan menunggu salah paham membesar.</p></div></div>
+    <ol class="steps">${["Tentukan tujuan percakapan sejak awal.","Tanyakan kebutuhan struktur dan ruang masing-masing.","Gunakan contoh konkret saat harapan berbeda.","Jadwalkan obrolan singkat setelah keputusan penting."].map((t,j)=>`<li><b>${j+1}</b><span>${t}</span></li>`).join("")}</ol></section>`+foot();
+}
+function pageStd(n){
+  const P = PAGES[n];
+  let extra = "";
+  if(n===16) extra = `<section class="blk"><div class="blk-h"><span class="bic">${ic("briefcase")}</span><div><h3>Contoh Bidang yang Sering Cocok</h3><p>${esc(R.T.roles)}. Ini hanya titik awal eksplorasi, bukan batasan.</p></div></div></section>`;
+  if(n===22) extra = `<section class="blk end"><h3>Laporanmu selesai 🎉</h3><p>Simpan atau bagikan ringkasannya, lalu ulangi tes beberapa bulan lagi untuk melihat perubahanmu.</p>
+    <div class="row"><button class="btn" id="copyBtn">${ic("copy")} Salin ringkasan</button><button class="btn ghost" id="retakeBtn">Ulangi tes</button></div><div class="toast" id="toast"></div></section>`;
+  return head(n, P.t, INTRO[n][R.grp], {icon:P.ic}) + P.b.map(blockHTML).join("") + extra + foot();
+}
+function pageHTML(n){ return n===1?page1():n===2?page2():n===3?page3():n===11?page11():pageStd(n); }
+
+// ---------- navigasi ----------
+function goPage(n){
+  n = Math.min(22, Math.max(1, n)); R.cur = n;
+  const host = $("rpage");
+  host.innerHTML = pageHTML(n);
+  host.style.setProperty("--acc", R.G.color); host.style.setProperty("--soft", R.G.soft);
+  $("rprev").disabled = n===1; $("rnext").disabled = n===22;
+  $("rsel").value = n;
+  $("rbar").style.width = (n/22*100)+"%";
+  host.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>goPage(+b.dataset.go));
+  if(n===22){ bindEnd(); if(!window.__t22){ window.__t22=true; track("laporan-hal-22","Laporan dibaca sampai akhir"); } }
+  try{ localStorage.setItem("ipip50_page", n); }catch(e){}
+  window.scrollTo({top:0, behavior:"instant"});
+}
+function bindEnd(){
+  $("retakeBtn").onclick = () => { answers = new Array(ITEMS.length).fill(null); save(); idx=0; document.body.classList.remove("report"); show("quiz"); render(); };
+  $("copyBtn").onclick = async () => {
+    const T = R.T;
+    const txt = `${R.name?R.name+" — ":""}Tipe kepribadian: ${R.code}-${R.id} (${T.n}, kelompok ${R.G.name})\n\n${T.core}\n\nKekuatan:\n${T.s.map(s=>"• "+s).join("\n")}\n\nPreferensi: ${R.order.map(dm=>`${R.pole[dm]} ${Math.round(Math.abs(R.raw[dm]-50)*2)}%`).join(", ")}\n\nCoba juga: ${location.href.split("#")[0]}`;
+    try{ await navigator.clipboard.writeText(txt); $("toast").textContent = "Ringkasan disalin. Tempel di chat atau catatanmu."; }
+    catch(e){ $("toast").textContent = "Gagal menyalin. Silakan screenshot halamanmu."; }
+  };
+}
+function initReportNav(){
+  $("rsel").innerHTML = TOC.map((t,i)=>`<option value="${i+1}">${pad(i+1)} · ${t}</option>`).join("");
+  $("rprev").onclick = () => goPage(R.cur-1);
+  $("rnext").onclick = () => goPage(R.cur+1);
+  $("rsel").onchange = e => goPage(+e.target.value);
+  document.addEventListener("keydown", e => { if(!R || $("result").classList.contains("hidden")) return; if(e.target.tagName==="SELECT"||e.target.tagName==="INPUT") return; if(e.key==="ArrowRight") goPage(R.cur+1); if(e.key==="ArrowLeft") goPage(R.cur-1); });
+  let sx=0, sy=0;
+  $("rpage").addEventListener("touchstart", e=>{ sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+  $("rpage").addEventListener("touchend", e=>{ const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; if(Math.abs(dx)>70 && Math.abs(dx)>Math.abs(dy)*1.5) goPage(R.cur+(dx<0?1:-1)); }, {passive:true});
+}
+
+initReportNav();
 </script>
 <script data-goatcounter="https://kepribadian-mbti.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
