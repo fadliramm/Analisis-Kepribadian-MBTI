@@ -2,9 +2,11 @@
 
 Kuesioner kepribadian interaktif (satu file HTML) yang mengestimasi **tipe MBTI** Anda dari 50 pernyataan **IPIP-50 (Big Five)**.
 
+**Coba langsung:** https://fadliramm.github.io/Analisis-Kepribadian-MBTI/
+
 ## Fitur
 - 50 pernyataan berbahasa Indonesia, skala 1–5, ramah layar HP
-- Hasil: tipe MBTI 4 huruf + Assertive/Turbulent, deskripsi, kekuatan, tantangan, peran yang cocok
+- Hasil berupa laporan 22 halaman yang dipersonalisasi (bisa memuat nama), termasuk matriks kecocokan dan rencana 30 hari
 - Kekuatan tiap preferensi (E/I, N/S, F/T, J/P, A/T)
 - Detail skor Big Five (Keterbukaan, Kehati-hatian, Ekstraversi, Keramahan, Neurotisisme)
 - Progres tersimpan di browser (localStorage); tidak ada data yang dikirim ke server
